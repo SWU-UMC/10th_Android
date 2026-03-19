@@ -1,4 +1,5 @@
 # 10th_Android
+<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white"/> <img src="https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white"/> <img src="https://img.shields.io/badge/Android Studio-3DDC84?style=flat-square&logo=androidstudio&logoColor=white"/> <img src="https://img.shields.io/badge/Jetpack Compose-4285F4?style=flat-square&logo=jetpackcompose&logoColor=white"/> <img src="https://img.shields.io/badge/XML-FF6600?style=flat-square&logo=xml&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/>
 
 <h3>팀원 구성</h3>
 <div style="overflow-x: auto;">
