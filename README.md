@@ -1,6 +1,6 @@
 # 10th_Android
 
-<h2>안드로이드 팀원 구성</h2>
+<h3>팀원 구성</h3>
 <div style="overflow-x: auto;">
 
 <table>
@@ -25,11 +25,12 @@
       <a href="https://github.com/Lemon0610">@Lemon0610</a>
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/ef3ff44e-0cbe-4972-83de-33268d441fc4" width="120"><br/>
-      <a href="https://github.com/mookeunji05">@mookeunji05</a>
+      <img src="https://github.com/user-attachments/assets/be1e348f-4248-479d-8cfb-e390dbd4138b" width="120"><br/>
+      <a href="https://github.com/sua710">@sua710</a>
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/66418268-2913-4ba0-b966-77f2018b5c98" width="120"><br/>
+      <img src="https://github.com/user-attachments/assets/ef3ff44e-0cbe-4972-83de-33268d441fc4" width="120"><br/>
+      <a href="https://github.com/mookeunji05">@mookeunji05</a>
     </td>
   </tr>
 </table>
