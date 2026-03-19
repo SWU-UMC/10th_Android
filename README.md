@@ -4,39 +4,7 @@
 
 | 도리/ 김도연(팀장)| 제로/ 정규은(팀원) | 레몬/ 김지아 (팀원) | 우가/ 강수아(팀원)| 묵은지/ 임은지(팀원)|
 |---|---|---|---|---|
-
-<h2>팀원 구성</h2>
-
-<table>
-  <tr>
-    <td align="center"><b>고지연</b></td>
-    <td align="center"><b>김민제</b></td>
-    <td align="center"><b>양희지</b></td>
-    <td align="center"><b>지창언</b></td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="./assets/member1.png" width="120"><br/>
-      <a href="https://github.com/yeon1615">@yeon1615</a>
-    </td>
-    <td align="center">
-      <img src="./assets/member2.png" width="120"><br/>
-      <a href="https://github.com/Cheorizzang">@Cheorizzang</a>
-    </td>
-    <td align="center">
-      <img src="./assets/member3.png" width="120"><br/>
-      <a href="https://github.com/heejiyang">@heejiyang</a>
-    </td>
-    <td align="center">
-      <img src="./assets/member4.png" width="120"><br/>
-      <a href="https://github.com/journey-ji">@journey-ji</a>
-    </td>
-  </tr>
-</table>
-
-
-
-
+|<img width="460" height="460" alt="image" src="https://github.com/user-attachments/assets/bfa0f759-26cb-433e-b56f-96009de570a7" />|<img width="460" height="460" alt="image" src="https://github.com/user-attachments/assets/a4ad7c51-c7df-42c0-a5b9-6a2258b50413" />|<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/336385ec-ebe4-4f55-b760-e84b94c8af41" />|<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/ef3ff44e-0cbe-4972-83de-33268d441fc4" />|<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/66418268-2913-4ba0-b966-77f2018b5c98" />|
 
 
 
