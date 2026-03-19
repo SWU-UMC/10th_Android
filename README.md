@@ -59,7 +59,7 @@ git add .
 
 #### 4. 커밋 메시지 작성
 ```sh
-git commit-m "Commit Message"
+git commit -m "Commit Message"
 ```
 
 #### 5. 원격 저장소에 본인 브랜치로 푸시
