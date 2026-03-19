@@ -1,12 +1,40 @@
 # 10th_Android
 
-## 안드로이드 팀원 구성
+<h2>안드로이드 팀원 구성</h2>
+<div style="overflow-x: auto;">
 
-| 도리/ 김도연(팀장)| 제로/ 정규은(팀원) | 레몬/ 김지아 (팀원) | 우가/ 강수아(팀원)| 묵은지/ 임은지(팀원)|
-|---|---|---|---|---|
-|<img width="460" height="460" alt="image" src="https://github.com/user-attachments/assets/bfa0f759-26cb-433e-b56f-96009de570a7" />|<img width="460" height="460" alt="image" src="https://github.com/user-attachments/assets/a4ad7c51-c7df-42c0-a5b9-6a2258b50413" />|<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/336385ec-ebe4-4f55-b760-e84b94c8af41" />|<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/ef3ff44e-0cbe-4972-83de-33268d441fc4" />|<img width="420" height="420" alt="image" src="https://github.com/user-attachments/assets/66418268-2913-4ba0-b966-77f2018b5c98" />|
-| [@kimdoyeon1234](https://github.com/kimdoyeon1234) | [@jeongkyueun](https://github.com/jeongkyueun) | [@Lemon0610](https://github.com/Lemon0610) | [@mookeunji05](https://github.com/mookeunji05) |
+<table>
+  <tr>
+    <td align="center">도리/ 김도연(팀장)</td>
+    <td align="center">제로/ 정규은(팀원)</td>
+    <td align="center">레몬/ 김지아(팀원)</td>
+    <td align="center">우가/ 강수아(팀원)</td>
+    <td align="center">묵은지/ 임은지(팀원)</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/bfa0f759-26cb-433e-b56f-96009de570a7" width="120"><br/>
+      <a href="https://github.com/kimdoyeon1234">@kimdoyeon1234</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/a4ad7c51-c7df-42c0-a5b9-6a2258b50413" width="120"><br/>
+      <a href="https://github.com/jeongkyueun">@jeongkyueun</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/336385ec-ebe4-4f55-b760-e84b94c8af41" width="120"><br/>
+      <a href="https://github.com/Lemon0610">@Lemon0610</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/ef3ff44e-0cbe-4972-83de-33268d441fc4" width="120"><br/>
+      <a href="https://github.com/mookeunji05">@mookeunji05</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/66418268-2913-4ba0-b966-77f2018b5c98" width="120"><br/>
+    </td>
+  </tr>
+</table>
 
+</div>
 
 ### Git 작업 순서
 
