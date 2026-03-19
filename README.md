@@ -1,5 +1,45 @@
 # 10th_Android
 
+#안드로이드 팀원 구성
+
+| 도리/ 김도연(팀장)| 제로/ 정규은(팀원) | 레몬/ 김지아 (팀원) | 우가/ 강수아(팀원)| 묵은지/ 임은지(팀원)|
+|---|---|---|---|---|
+
+<h2>팀원 구성</h2>
+
+<table>
+  <tr>
+    <td align="center"><b>고지연</b></td>
+    <td align="center"><b>김민제</b></td>
+    <td align="center"><b>양희지</b></td>
+    <td align="center"><b>지창언</b></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./assets/member1.png" width="120"><br/>
+      <a href="https://github.com/yeon1615">@yeon1615</a>
+    </td>
+    <td align="center">
+      <img src="./assets/member2.png" width="120"><br/>
+      <a href="https://github.com/Cheorizzang">@Cheorizzang</a>
+    </td>
+    <td align="center">
+      <img src="./assets/member3.png" width="120"><br/>
+      <a href="https://github.com/heejiyang">@heejiyang</a>
+    </td>
+    <td align="center">
+      <img src="./assets/member4.png" width="120"><br/>
+      <a href="https://github.com/journey-ji">@journey-ji</a>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
 ### Git 작업 순서
 
 본인의 브랜치에서만 작업하고, `main` 브랜치는 직접 수정하지 않습니다.
