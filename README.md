@@ -6,11 +6,11 @@
 
 <table>
   <tr>
-    <td align="center">도리/ 김도연(팀장)</td>
-    <td align="center">제로/ 정규은(팀원)</td>
-    <td align="center">레몬/ 김지아(팀원)</td>
-    <td align="center">우가/ 강수아(팀원)</td>
-    <td align="center">묵은지/ 임은지(팀원)</td>
+    <td align="center">도리/ 김도연(파트장)</td>
+    <td align="center">제로/ 정규은(챌린저)</td>
+    <td align="center">레몬/ 김지아(챌린저)</td>
+    <td align="center">우가/ 강수아(챌린저)</td>
+    <td align="center">묵은지/ 임은지(챌린저)</td>
   </tr>
   <tr>
     <td align="center">
