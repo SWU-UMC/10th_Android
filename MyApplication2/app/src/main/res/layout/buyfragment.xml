@@ -42,20 +42,13 @@
                 android:layout_marginStart="10dp"
                 android:text="Shoes"
                 android:textColor="#888888" />
-
         </LinearLayout>
     </HorizontalScrollView>
 
-    <FrameLayout
-        android:id="@+id/category_container"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_buy"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="상품 목록이 여기에 나타납니다" />
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:clipToPadding="false" />
 
 </LinearLayout>
