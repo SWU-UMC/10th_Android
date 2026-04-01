@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">week2</string>
+
+    <!--바텀 네비게이션-->
+    <string name="nav_home">홈</string>
+    <string name="nav_purchase">구매하기</string>
+    <string name="nav_wishlist">위시리스트</string>
+    <string name="nav_cart">장바구니</string>
+    <string name="nav_profile">프로필</string>
+
+    <!--홈 Fragment -->
+    <string name="home_discover">Discover</string>
+    <string name="home_date">03월 31일 화요일</string>
+
+    <!--장바구니 Fragment -->
+    <string name="cart_empty_msg">장바구니가 비어 있습니다.\n제품을 추가하면 여기에 표시됩니다.</string>
+    <string name="cart_order">주문하기</string>
+
+    <!--프로필 Fragment -->
+    <string name="profile_title">Profile Fragment</string>
+
+    <!--구매하기 Fragment -->
+    <string name="purchase_all">전체</string>
+    <string name="purchase_tops_tshirts">Tops &amp; T-Shirts</string>
+    <string name="purchase_shoes">Shoes</string>
+
+    <!--위시리스트 Fragment -->
+    <string name="wishlist_title">위시리스트</string>
 </resources>
