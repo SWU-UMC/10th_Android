@@ -5,6 +5,11 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.nike.databinding.ActivityMainBinding
+import com.example.nike.ui.theme.HomeFragment
+import com.example.nike.ui.theme.ShopFragment
+import com.example.nike.ui.theme.WishListFragment
+import com.example.nike.ui.theme.CartFragment
+import com.example.nike.ui.theme.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -67,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
+            .replace(R.id.fragment_container, fragment)
             .commit()
     }
 }
