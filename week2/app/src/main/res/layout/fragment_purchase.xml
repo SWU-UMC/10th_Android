@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:text="@string/purchase_all"
-            android:textColor="@android:color/black"
+            android:textColor="@color/nike_black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -27,14 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:text="@string/purchase_tops_tshirts"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/nike_gray"
             android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/purchase_shoes"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/nike_gray"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -43,7 +43,7 @@
         android:layout_width="30dp"
         android:layout_height="2dp"
         android:layout_marginStart="20dp"
-        android:background="@android:color/black"
+        android:background="@color/nike_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_categories"
         android:layout_marginTop="-15dp"/>
