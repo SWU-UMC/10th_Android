@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.week2final.R
+
 class ProfileFragment : Fragment() {
 
     override fun onCreateView(

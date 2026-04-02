@@ -1,5 +1,5 @@
 package com.example.myapplication
-import com.example.week2final.R
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
