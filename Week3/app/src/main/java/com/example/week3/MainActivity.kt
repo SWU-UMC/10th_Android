@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import com.example.week2final.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-// 만약 Fragment 파일들이 다른 폴더에 있다면 아래처럼 명시적으로 임포트가 필요합니다.
-// 하지만 보통 같은 패키지(com.example.week3) 안에 있다면 아래 import 문들은 없어도 됩니다.
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.itemIconTintList = null
 
-        // 앱 실행 시 첫 화면 설정
         loadFragment(HomeFragment())
 
         bottomNav.setOnItemSelectedListener { item ->

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ProductAdapter(
     private val items: List<Product>,
-    private val listener: ProductClickListener // Delegate
+    private val listener: ProductClickListener
 ) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

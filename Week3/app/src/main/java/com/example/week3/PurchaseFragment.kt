@@ -13,7 +13,7 @@ class PurchaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // fragment_purchase.xml 레이아웃을 연결합니다.
+
         return inflater.inflate(R.layout.fragment_purchase, container, false)
     }
 }
