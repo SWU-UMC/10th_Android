@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_purchase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:tabIndicatorColor="@android:color/black"
+        app:tabSelectedTextColor="@android:color/black"
+        app:tabTextColor="@android:color/darker_gray"
+        app:tabMode="fixed"
+        app:tabGravity="start"
+        app:tabRippleColor="@android:color/transparent">
 
-        <TextView
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/purchase_all"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="@string/purchase_all" />
 
-        <TextView
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/purchase_tops_tshirts"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="18sp" />
+            android:text="@string/purchase_tops_tshirts" />
 
-        <TextView
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/purchase_shoes"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="30dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/black" />
+            android:text="@string/purchase_shoes" />
+    </com.google.android.material.tabs.TabLayout>
 
 </LinearLayout>

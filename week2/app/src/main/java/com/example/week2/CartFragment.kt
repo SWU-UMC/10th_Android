@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.week2.databinding.FragmentCartBinding
 
 class CartFragment : Fragment() {
@@ -23,7 +24,8 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnOrder.setOnClickListener {
-            (activity as? MainActivity)?.changeFragmentToPurchase()
+            // Navigation Component를 사용하여 구매하기 화면으로 이동
+            findNavController().navigate(R.id.nav_purchase)
         }
     }
 
