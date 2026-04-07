@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/nike_air_force" />
+        tools:src="@drawable/img_nike_air_force" />
 
     <ImageButton
         android:id="@+id/ib_wishlist"

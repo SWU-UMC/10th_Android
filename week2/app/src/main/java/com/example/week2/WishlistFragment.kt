@@ -29,8 +29,8 @@ class WishlistFragment : Fragment() {
     private fun setupRecyclerView() {
         // Dummy wishlist data
         val dummyWishlist = mutableListOf(
-            Product(1, "Nike Everyday Plus Cushioned", "Training Ankle Socks (6 Pairs)", "US$16", R.drawable.training_ankle_socks, true),
-            Product(2, "Air Jordan XXXVI", "Basketball Shoes", "US$185", R.drawable.air_jordan_xxxvi, true)
+            Product(1, "Nike Everyday Plus Cushioned", "Training Ankle Socks (6 Pairs)", "US$16", R.drawable.img_training_ankle_socks, true),
+            Product(2, "Air Jordan XXXVI", "Basketball Shoes", "US$185", R.drawable.img_air_jordan_xxxvi, true)
         )
 
         val adapter = ProductAdapter(

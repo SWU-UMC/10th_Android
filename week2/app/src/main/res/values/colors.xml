@@ -20,4 +20,7 @@
     <!-- Nike 전용 Colors -->
     <color name="nike_black">#111111</color>
     <color name="nike_gray">#757575</color>
+
+    <!-- Wishlist Selector Colors -->
+    <color name="selector_wishlist_tint">#E2112C</color>
 </resources>

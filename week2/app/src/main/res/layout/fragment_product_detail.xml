@@ -18,7 +18,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/caretleft"
+            android:src="@drawable/ic_caretleft"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +45,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/magnifyingglass"
+            android:src="@drawable/ic_magnifyingglass"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:scaleType="fitCenter"
-                tools:src="@drawable/nike_everyday_plus_cushioned" />
+                tools:src="@drawable/img_nike_everyday_plus_cushioned" />
 
             <TextView
                 android:id="@+id/tv_detail_category"
@@ -100,11 +100,12 @@
                 tools:text="US$10" />
 
             <TextView
+                android:id="@+id/tv_detail_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:lineSpacingExtra="4dp"
-                android:text="The Nike Everyday Plus Cushioned Socks bring comfort to your workout with extra cushioning under the heel and forefoot and a snug, supportive arch band. Sweat-wicking power and breathability up top help keep your feet dry and cool to help push you through that extra set."
+                android:text="@string/product_description"
                 android:textColor="@android:color/black"
                 android:textSize="14sp" />
 
@@ -112,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="• Shown: Multi-Color\n• Style: SX6897-965"
+                android:text="@string/product_detail_info"
                 android:textColor="@android:color/black"
                 android:textSize="14sp" />
 
@@ -120,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="View Product Details"
+                android:text="@string/view_product_details"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -131,7 +132,7 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/bg_white_stroke"
-                android:text="사이즈 선택"
+                android:text="@string/btn_select_size"
                 android:textAllCaps="false"
                 android:textColor="@android:color/black" />
 
@@ -141,20 +142,37 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_black_round"
-                android:text="장바구니에 추가"
+                android:text="@string/btn_add_to_cart"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <LinearLayout
                 android:id="@+id/btn_wishlist"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_white_stroke"
-                android:text="위시리스트 ♡"
-                android:textAllCaps="false"
-                android:textColor="@android:color/black" />
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wishlist_btn_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_wishlist_heart"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/sl_wishlist_icon"
+                    app:tint="@drawable/sl_wishlist_tint" />
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -5,48 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/ll_categories"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_purchase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="20dp"
+        app:tabIndicatorColor="@color/nike_black"
+        app:tabSelectedTextColor="@color/nike_black"
+        app:tabTextColor="@color/nike_gray"
+        app:tabMode="fixed"
+        app:tabGravity="start"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="2dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/purchase_all"
-            android:textColor="@color/nike_black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="@string/purchase_all" />
 
-        <TextView
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="@string/purchase_tops_tshirts"
-            android:textColor="@color/nike_gray"
-            android:textSize="18sp" />
+            android:text="@string/purchase_tops_tshirts" />
 
-        <TextView
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/purchase_shoes"
-            android:textColor="@color/nike_gray"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <View
-        android:id="@+id/v_indicator"
-        android:layout_width="30dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="20dp"
-        android:background="@color/nike_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_categories"
-        android:layout_marginTop="-15dp"/>
+            android:text="@string/purchase_shoes" />
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_purchase_products"
@@ -55,7 +42,7 @@
         android:clipToPadding="false"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_categories"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout_purchase"
         tools:listitem="@layout/item_product" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

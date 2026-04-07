@@ -3,7 +3,8 @@ package com.example.week2
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.week2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -18,51 +19,16 @@ class MainActivity : AppCompatActivity() {
         
         Log.d(TAG, "onCreate")
 
-        initBottomNavigation()
+        initNavigation()
     }
 
-    private fun initBottomNavigation() {
-        // 앱 실행 시 첫 화면 설정 (HomeFragment)
-        if (supportFragmentManager.findFragmentById(R.id.main_frame) == null) {
-            replaceFragment(HomeFragment())
-        }
-
-        binding.bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    replaceFragment(HomeFragment())
-                    true
-                }
-                R.id.nav_purchase -> {
-                    replaceFragment(PurchaseFragment())
-                    true
-                }
-                R.id.nav_wishlist -> {
-                    replaceFragment(WishlistFragment())
-                    true
-                }
-                R.id.nav_cart -> {
-                    replaceFragment(CartFragment())
-                    true
-                }
-                R.id.nav_profile -> {
-                    replaceFragment(ProfileFragment())
-                    true
-                }
-                else -> false
-            }
-        }
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frame, fragment)
-            .commit()
-    }
-
-    // 장바구니에서 호출할 함수: 구매하기 탭으로 이동
-    fun changeFragmentToPurchase() {
-        binding.bottomNav.selectedItemId = R.id.nav_purchase
+    private fun initNavigation() {
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        
+        // BottomNavigationView와 NavController 연결
+        binding.bottomNav.setupWithNavController(navController)
     }
 
     override fun onStart() {

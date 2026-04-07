@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.week2.databinding.FragmentProductDetailBinding
 
 class ProductDetailFragment : Fragment() {
@@ -22,12 +23,12 @@ class ProductDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val product = arguments?.getSerializable("product") as? Product
+        val product = arguments?.getParcelable<Product>("product")
 
         product?.let {
             binding.tvHeaderTitle.text = it.name
             binding.ivDetailImage.setImageResource(it.imageResId)
-            binding.tvDetailCategory.text = it.description // Using description as category for now
+            binding.tvDetailCategory.text = it.category
             binding.tvDetailName.text = it.name
             binding.tvDetailPrice.text = it.price
             
@@ -35,7 +36,7 @@ class ProductDetailFragment : Fragment() {
         }
 
         binding.ibBack.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            findNavController().popBackStack()
         }
 
         binding.btnWishlist.setOnClickListener {
@@ -47,25 +48,11 @@ class ProductDetailFragment : Fragment() {
     }
 
     private fun updateWishlistButton(isWishlisted: Boolean) {
-        if (isWishlisted) {
-            binding.btnWishlist.text = "위시리스트 ❤️"
-        } else {
-            binding.btnWishlist.text = "위시리스트 ♡"
-        }
+        binding.ivWishlistHeart.isSelected = isWishlisted
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        fun newInstance(product: Product): ProductDetailFragment {
-            val fragment = ProductDetailFragment()
-            val args = Bundle()
-            args.putSerializable("product", product)
-            fragment.arguments = args
-            return fragment
-        }
     }
 }

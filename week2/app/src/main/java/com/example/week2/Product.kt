@@ -1,7 +1,9 @@
 package com.example.week2
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Product(
     val id: Int,
     val name: String,
@@ -10,4 +12,4 @@ data class Product(
     val imageResId: Int,
     var isWishlisted: Boolean = false,
     val category: String = ""
-) : Serializable
+) : Parcelable
