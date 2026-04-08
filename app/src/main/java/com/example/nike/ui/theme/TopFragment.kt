@@ -8,9 +8,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nike.R
 import com.example.nike.databinding.FragmentTopBinding
-import com.example.nike.ui.theme.ProductViewModel
-import com.example.nike.ui.theme.ProductAdapter
-import com.example.nike.ui.theme.ProductDetailFragment
+import com.example.nike.ui.theme.ProductGridAdapter
 
 class TopFragment : Fragment(R.layout.fragment_top) {
 
@@ -18,18 +16,16 @@ class TopFragment : Fragment(R.layout.fragment_top) {
     private val binding get() = _binding!!
 
     private val viewModel: ProductViewModel by activityViewModels()
-    private lateinit var adapter: ProductAdapter
+    private lateinit var adapter: ProductGridAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentTopBinding.bind(view)
 
-        adapter = ProductAdapter(
-            onHeartClick = { product ->
-                viewModel.toggleWishlist(product.id)
-            },
+        adapter = ProductGridAdapter(
+            productList = mutableListOf(),
             onItemClick = { product ->
-                val intent = Intent(requireContext(), ProductDetailFragment::class.java)
+                val intent = Intent(requireContext(), ProductDetailActivity::class.java)
                 intent.putExtra("product_id", product.id)
                 startActivity(intent)
             }
@@ -39,7 +35,7 @@ class TopFragment : Fragment(R.layout.fragment_top) {
         binding.rvTop.adapter = adapter
 
         viewModel.allProducts.observe(viewLifecycleOwner) { products ->
-            adapter.submitList(products.filter { it.category == "TOP" })
+            adapter.updateList(products.filter { it.category == "TOP" })
         }
     }
 

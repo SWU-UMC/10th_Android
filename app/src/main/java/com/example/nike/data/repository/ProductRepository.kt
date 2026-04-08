@@ -10,11 +10,14 @@ import kotlinx.coroutines.flow.first
 data class ProductUiModel(
     val id: Int,
     val name: String,
+    val description: String = "",
     val price: Int,
     val imageResId: Int,
+    val colorCount: Int = 0,
+    val isBestSeller: Boolean = false,
+    var isLiked: Boolean,
     val category: String,
-    val isNew: Boolean,
-    val isLiked: Boolean
+    val isNew: Boolean
 )
 
 class ProductRepository(
@@ -76,11 +79,14 @@ class ProductRepository(
         return ProductUiModel(
             id = id,
             name = name,
+            description = description,
             price = price,
             imageResId = imageResId,
+            colorCount = colorCount,
+            isBestSeller = isBestSeller,
+            isLiked = isLiked,
             category = category,
-            isNew = isNew,
-            isLiked = isLiked
+            isNew = isNew
         )
     }
 }

@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.nike.R
 
-class ProductDetailFragment : Fragment() {
+class ProductDetailActivity : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
