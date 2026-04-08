@@ -3,58 +3,69 @@ package com.example.week2
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.week2.databinding.FragmentBuyBinding
+import com.google.android.material.tabs.TabLayout
 
 class BuyFragment : Fragment(R.layout.fragment_buy) {
 
+    private var _binding: FragmentBuyBinding? = null
+    private val binding get() = _binding!!
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentBuyBinding.bind(view)
 
-        val tab1 = view.findViewById<LinearLayout>(R.id.tab1)
-        val tab2 = view.findViewById<LinearLayout>(R.id.tab2)
-        val tab3 = view.findViewById<LinearLayout>(R.id.tab3)
-
-        val text1 = tab1.getChildAt(0) as TextView
-        val text2 = tab2.getChildAt(0) as TextView
-        val text3 = tab3.getChildAt(0) as TextView
-
-        changeFragment(Tab1Fragment())
-        selectTab(text1, text2, text3, text1)
-
-        tab1.setOnClickListener {
-            changeFragment(Tab1Fragment())
-            selectTab(text1, text2, text3, text1)
-        }
-
-        tab2.setOnClickListener {
-            changeFragment(Tab2Fragment())
-            selectTab(text1, text2, text3, text2)
-        }
-
-        tab3.setOnClickListener {
-            changeFragment(Tab3Fragment())
-            selectTab(text1, text2, text3, text3)
-        }
+        setupTabs()
     }
 
-    private fun changeFragment(fragment: Fragment) {
+    private fun setupTabs() {
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.all)))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.Shirts)))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.Shoes)))
+
+        replaceTabFragment(BuyAllFragment())
+
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                updateTabStyle(tab, true)
+
+                when (tab?.position) {
+                    0 -> replaceTabFragment(BuyAllFragment())
+                    1 -> replaceTabFragment(BuyTopsFragment())
+                    2 -> replaceTabFragment(BuyShoesFragment())
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                updateTabStyle(tab, false)
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
+
+        updateTabStyle(binding.tabLayout.getTabAt(0), true)
+    }
+
+    private fun replaceTabFragment(fragment: Fragment) {
         childFragmentManager.beginTransaction()
             .replace(R.id.tabContent, fragment)
             .commit()
     }
 
-    private fun selectTab(
-        t1: TextView,
-        t2: TextView,
-        t3: TextView,
-        selected: TextView
-    ) {
-        t1.setTypeface(null, Typeface.NORMAL)
-        t2.setTypeface(null, Typeface.NORMAL)
-        t3.setTypeface(null, Typeface.NORMAL)
+    private fun updateTabStyle(tab: TabLayout.Tab?, isBold: Boolean) {
+        val tabView = (binding.tabLayout.getChildAt(0) as ViewGroup).getChildAt(tab?.position ?: 0) as ViewGroup
+        val textView = tabView.getChildAt(1) as? TextView
 
-        selected.setTypeface(null, Typeface.BOLD)
+        textView?.let {
+            it.typeface = if (isBold) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

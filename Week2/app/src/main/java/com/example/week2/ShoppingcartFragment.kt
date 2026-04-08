@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import android.widget.Button
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.NavOptions
 
 class ShoppingcartFragment : Fragment() {
 
@@ -24,7 +26,11 @@ class ShoppingcartFragment : Fragment() {
         val button = view.findViewById<Button>(R.id.buy_button)
 
         button.setOnClickListener {
-            (requireActivity() as MainActivity).replaceFragment(BuyFragment())
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(R.id.btnShoppingcart, true)
+                .build()
+
+            findNavController().navigate(R.id.btnBuy, null, navOptions)
         }
 
     }
