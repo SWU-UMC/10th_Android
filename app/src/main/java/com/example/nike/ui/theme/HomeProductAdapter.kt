@@ -1,40 +1,62 @@
 package com.example.nike.ui.theme
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nike.R
+import com.example.nike.data.repository.ProductUiModel
+import com.example.nike.databinding.ItemProductBinding
 
 class HomeProductAdapter(
-    private val productList: List<Product>,
-    private val onItemClick: (Product) -> Unit
-) : RecyclerView.Adapter<HomeProductAdapter.HomeProductViewHolder>() {
+    private val onHeartClick: (ProductUiModel) -> Unit,
+    private val onItemClick: (ProductUiModel) -> Unit
+) : RecyclerView.Adapter<HomeProductAdapter.ProductViewHolder>() {
 
-    inner class HomeProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imgProduct: ImageView = itemView.findViewById(R.id.imgProduct)
-        val tvName: TextView = itemView.findViewById(R.id.tvName)
-        val tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
-    }
+    private val items = mutableListOf<ProductUiModel>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeProductViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_home_product, parent, false)
-        return HomeProductViewHolder(view)
-    }
+    inner class ProductViewHolder(
+        private val binding: ItemProductBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-    override fun onBindViewHolder(holder: HomeProductViewHolder, position: Int) {
-        val product = productList[position]
-        holder.imgProduct.setImageResource(product.imageResId)
-        holder.tvName.text = product.name
-        holder.tvPrice.text = product.price
+        fun bind(item: ProductUiModel) {
+            binding.ivProduct.setImageResource(item.imageResId)
+            binding.tvProductName.text = item.name
+            binding.tvProductPrice.text = "${item.price}원"
 
-        holder.itemView.setOnClickListener {
-            onItemClick(product)
+            if (item.isLiked) {
+                binding.ivHeart.setImageResource(R.drawable.ic_heart_filled)
+            } else {
+                binding.ivHeart.setImageResource(R.drawable.ic_heartstraight)
+            }
+
+            binding.ivHeart.setOnClickListener {
+                onHeartClick(item)
+            }
+
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
         }
     }
 
-    override fun getItemCount(): Int = productList.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
+        val binding = ItemProductBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return ProductViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+        holder.bind(items[position])
+    }
+
+    override fun getItemCount(): Int = items.size
+
+    fun submitList(newItems: List<ProductUiModel>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
+    }
 }

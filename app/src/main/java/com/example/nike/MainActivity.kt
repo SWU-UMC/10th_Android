@@ -5,11 +5,11 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.nike.databinding.ActivityMainBinding
-import com.example.nike.ui.theme.HomeFragment
-import com.example.nike.ui.theme.ShopFragment
-import com.example.nike.ui.theme.WishListFragment
 import com.example.nike.ui.theme.CartFragment
+import com.example.nike.ui.theme.HomeFragment
 import com.example.nike.ui.theme.ProfileFragment
+import com.example.nike.ui.theme.ShopFragment
+import com.example.nike.ui.theme.WishlistFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.menu_home -> replaceFragment(HomeFragment())
                 R.id.menu_shop -> replaceFragment(ShopFragment())
-                R.id.menu_wishlist -> replaceFragment(WishListFragment())
+                R.id.menu_wishlist -> replaceFragment(WishlistFragment())
                 R.id.menu_cart -> replaceFragment(CartFragment())
                 R.id.menu_profile -> replaceFragment(ProfileFragment())
             }

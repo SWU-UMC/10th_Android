@@ -1,47 +1,41 @@
 package com.example.nike.ui.theme
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.nike.R
+import com.example.nike.data.model.ProductDummyData
+import com.example.nike.databinding.FragmentHomeBinding
+import com.example.nike.ui.theme.HomeProductAdapter
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerHomeProducts)
-        recyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    private lateinit var homeProductAdapter: HomeProductAdapter
 
-        recyclerView.adapter = HomeProductAdapter(ProductDummyData.getHomeProducts()) { product ->
-            moveToDetail(product)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentHomeBinding.bind(view)
+
+        val latestProducts = ProductDummyData.getProducts().filter { it.isNew }
+
+        homeProductAdapter = HomeProductAdapter(latestProducts) { product ->
+            val intent = Intent(requireContext(), ProductDetailFragment::class.java)
+            intent.putExtra("product_id", product.id)
+            startActivity(intent)
         }
 
-        return view
+        binding.rvLatestProducts.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvLatestProducts.adapter = homeProductAdapter
     }
 
-    private fun moveToDetail(product: Product) {
-        val bundle = Bundle().apply {
-            putString("name", product.name)
-            putString("price", product.price)
-            putInt("image", product.imageResId)
-        }
-
-        val detailFragment = ProductDetailFragment()
-        detailFragment.arguments = bundle
-
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, detailFragment)
-            .addToBackStack(null)
-            .commit()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

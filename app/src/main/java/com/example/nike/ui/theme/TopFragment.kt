@@ -7,12 +7,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nike.R
-import com.example.nike.databinding.FragmentWishListBinding
+import com.example.nike.databinding.FragmentTopBinding
 import com.example.nike.ui.theme.ProductViewModel
+import com.example.nike.ui.theme.ProductAdapter
+import com.example.nike.ui.theme.ProductDetailFragment
 
-class WishlistFragment : Fragment(R.layout.fragment_wish_list) {
+class TopFragment : Fragment(R.layout.fragment_top) {
 
-    private var _binding: FragmentWishListBinding? = null
+    private var _binding: FragmentTopBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: ProductViewModel by activityViewModels()
@@ -20,7 +22,7 @@ class WishlistFragment : Fragment(R.layout.fragment_wish_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentWishListBinding.bind(view)
+        _binding = FragmentTopBinding.bind(view)
 
         adapter = ProductAdapter(
             onHeartClick = { product ->
@@ -33,11 +35,11 @@ class WishlistFragment : Fragment(R.layout.fragment_wish_list) {
             }
         )
 
-        binding.rvWishlist.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.rvWishlist.adapter = adapter
+        binding.rvTop.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.rvTop.adapter = adapter
 
         viewModel.allProducts.observe(viewLifecycleOwner) { products ->
-            adapter.submitList(products.filter { it.isLiked })
+            adapter.submitList(products.filter { it.category == "TOP" })
         }
     }
 

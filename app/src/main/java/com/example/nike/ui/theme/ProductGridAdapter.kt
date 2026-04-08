@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nike.R
+import com.example.nike.data.model.Product
 
 class ProductGridAdapter(
     private val productList: MutableList<Product>,
@@ -35,8 +36,9 @@ class ProductGridAdapter(
         holder.imgProduct.setImageResource(product.imageResId)
         holder.tvName.text = product.name
         holder.tvDescription.text = product.description
-        holder.tvColorCount.text = product.colorCount
-        holder.tvPrice.text = product.price
+        holder.tvColorCount.text = product.colorCount.toString()
+        holder.tvPrice.text = product.price.toString()
+        holder.tvPrice.text = "${product.price}원"
         holder.tvBestSeller.visibility = if (product.isBestSeller) View.VISIBLE else View.GONE
 
         holder.imgLike.setImageResource(

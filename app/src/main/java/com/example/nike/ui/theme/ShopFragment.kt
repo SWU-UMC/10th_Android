@@ -1,46 +1,34 @@
 package com.example.nike.ui.theme
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.nike.R
+import com.example.nike.databinding.FragmentShopBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
-class ShopFragment : Fragment() {
+class ShopFragment : Fragment(R.layout.fragment_shop) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val view = inflater.inflate(R.layout.fragment_shop, container, false)
+    private var _binding: FragmentShopBinding? = null
+    private val binding get() = _binding!!
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerShopProducts)
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentShopBinding.bind(view)
 
-        recyclerView.adapter = ProductGridAdapter(ProductDummyData.getShopProducts()) { product ->
-            moveToDetail(product)
-        }
+        binding.viewPager.adapter = ShopPagerAdapter(this)
 
-        return view
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            tab.text = when (position) {
+                0 -> "Top & T-shirts"
+                1 -> "Sale"
+                else -> ""
+            }
+        }.attach()
     }
 
-    private fun moveToDetail(product: Product) {
-        val bundle = Bundle().apply {
-            putString("name", product.name)
-            putString("price", product.price)
-            putInt("image", product.imageResId)
-        }
-
-        val detailFragment = ProductDetailFragment()
-        detailFragment.arguments = bundle
-
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, detailFragment)
-            .addToBackStack(null)
-            .commit()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
