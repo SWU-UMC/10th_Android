@@ -23,21 +23,13 @@
         app:tabTextColor="#888888"
         app:tabMode="fixed">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="전체" />
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tops &amp; T-Shirts" />
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Shoes" />
+        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="전체" />
+        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tops &amp; T-Shirts" />
+        <com.google.android.material.tabs.TabItem android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Shoes" />
     </com.google.android.material.tabs.TabLayout>
 
     <ScrollView
+        android:id="@+id/purchase_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -47,40 +39,98 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/iv_socks"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:src="@drawable/socks"
-                android:scaleType="centerInside"
-                android:background="#F9F9F9" />
+                android:layout_height="300dp">
+                <ImageView
+                    android:id="@+id/iv_socks"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/socks"
+                    android:scaleType="centerInside"
+                    android:background="#F9F9F9" />
+                <ImageView
+                    android:id="@+id/btn_heart1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/ic_heart_empty"
+                    android:padding="8dp"/>
+            </FrameLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Training Crew Socks" android:textColor="#888888" android:textSize="14sp" android:layout_marginTop="16dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Nike Everyday Plus Cushioned" android:textColor="@color/black" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$10" android:textColor="@color/black" android:textSize="14sp" android:layout_marginTop="8dp" android:layout_marginBottom="40dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Training Crew Socks"
-                android:textColor="#888888"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp" />
-
-            <TextView
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nike Everyday Plus Cushioned"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:layout_marginTop="4dp" />
+                android:layout_height="300dp">
+                <ImageView
+                    android:id="@+id/iv_socks2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/socks"
+                    android:scaleType="centerInside"
+                    android:background="#F9F9F9" />
+                <ImageView
+                    android:id="@+id/btn_heart2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/ic_heart_empty"
+                    android:padding="8dp"/>
+            </FrameLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Training Crew Socks" android:textColor="#888888" android:textSize="14sp" android:layout_marginTop="16dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Nike Everyday Plus Cushioned2" android:textColor="@color/black" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$10" android:textColor="@color/black" android:textSize="14sp" android:layout_marginTop="8dp" android:layout_marginBottom="40dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+                <ImageView
+                    android:id="@+id/iv_socks3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/socks"
+                    android:scaleType="centerInside"
+                    android:background="#F9F9F9" />
+                <ImageView
+                    android:id="@+id/btn_heart3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/ic_heart_empty"
+                    android:padding="8dp"/>
+            </FrameLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Training Crew Socks" android:textColor="#888888" android:textSize="14sp" android:layout_marginTop="16dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Nike Everyday Plus Cushioned3" android:textColor="@color/black" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$10" android:textColor="@color/black" android:textSize="14sp" android:layout_marginTop="8dp" android:layout_marginBottom="40dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+                <ImageView
+                    android:id="@+id/iv_socks4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/socks"
+                    android:scaleType="centerInside"
+                    android:background="#F9F9F9" />
+                <ImageView
+                    android:id="@+id/btn_heart4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/ic_heart_empty"
+                    android:padding="8dp"/>
+            </FrameLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Training Crew Socks" android:textColor="#888888" android:textSize="14sp" android:layout_marginTop="16dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Nike Everyday Plus Cushioned4" android:textColor="@color/black" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$10" android:textColor="@color/black" android:textSize="14sp" android:layout_marginTop="8dp" android:layout_marginBottom="40dp" />
 
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
