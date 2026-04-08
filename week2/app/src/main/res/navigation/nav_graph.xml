@@ -9,12 +9,20 @@
         android:id="@+id/nav_home"
         android:name="com.example.week2.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_purchase"
         android:name="com.example.week2.PurchaseFragment"
         android:label="PurchaseFragment"
-        tools:layout="@layout/fragment_purchase" />
+        tools:layout="@layout/fragment_purchase">
+        <action
+            android:id="@+id/action_purchaseFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_wishlist"
         android:name="com.example.week2.WishlistFragment"
@@ -30,4 +38,13 @@
         android:name="com.example.week2.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.week2.ProductDetailFragment"
+        android:label="ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="product"
+            app:argType="com.example.week2.Product" />
+    </fragment>
 </navigation>

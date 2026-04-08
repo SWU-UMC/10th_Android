@@ -26,4 +26,12 @@
 
     <!--위시리스트 Fragment -->
     <string name="wishlist_title">위시리스트</string>
+
+    <!-- 제품 상세 정보 -->
+    <string name="product_description">The Nike Everyday Plus Cushioned Socks bring comfort to your workout with extra cushioning under the heel and forefoot and a snug, supportive arch band. Sweat-wicking power and breathability up top help keep your feet dry and cool to help push you through that extra set.</string>
+    <string name="wishlist_btn_text">위시리스트</string>
+    <string name="product_detail_info">• Shown: Multi-Color\n• Style: SX6897-965</string>
+    <string name="view_product_details">View Product Details</string>
+    <string name="btn_select_size">사이즈 선택</string>
+    <string name="btn_add_to_cart">장바구니에 추가</string>
 </resources>
