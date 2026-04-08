@@ -7,9 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,36 +21,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomBarInclude.bottomNav.setupWithNavController(navController)
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
-
-        if (savedInstanceState == null) {
-            replaceFragment(HomeFragment())
-        }
-
-        binding.bottomBarInclude.btnHome.setOnClickListener {
-            replaceFragment(HomeFragment())
-        }
-        binding.bottomBarInclude.btnBuy.setOnClickListener {
-            replaceFragment(BuyFragment())
-        }
-        binding.bottomBarInclude.btnWishlist.setOnClickListener {
-            replaceFragment(WishlistFragment())
-        }
-        binding.bottomBarInclude.btnShoppingcart.setOnClickListener {
-            replaceFragment(ShoppingcartFragment())
-        }
-        binding.bottomBarInclude.btnProfile.setOnClickListener {
-            replaceFragment(ProfileFragment())
-        }
-    }
-
-    fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
-            .commit()
     }
 }

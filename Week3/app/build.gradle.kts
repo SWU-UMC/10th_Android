@@ -48,4 +48,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }

@@ -1,7 +1,11 @@
 package com.example.week3
 
 data class ProductData (
-    val image: Int,
-    val title: String = "",
-    val number: String? = null
+    val id: Int,
+    val imageRes: Int,
+    val name: String,
+    val desc: String,
+    val colorCount: Int,
+    val price: String,
+    var isWished: Boolean = false
 )

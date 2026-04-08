@@ -1,36 +1,59 @@
 package com.example.week3
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.week3.ProductRepository
+import com.example.week3.databinding.FragmentWishlistBinding
+import kotlinx.coroutines.launch
 
-class WishlistFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_wishlist, container, false)
-    }
+class WishlistFragment : Fragment(R.layout.fragment_wishlist) {
+    private var _binding: FragmentWishlistBinding? = null
+    private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentWishlistBinding.bind(view)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerWish)
+        val productAdapter = ProductAdapter { clickedItem ->
+            handleRemoveWish(clickedItem)
+        }
 
-        val productList = listOf(
-            WishProduct(R.drawable.image2, "상품2", "설명2", 2, "₩40,000"),
-            WishProduct(R.drawable.image3, "상품3", "설명3", 4, "₩80,000")
-        )
+        binding.recyclerWish.apply {
+            adapter = productAdapter
+            layoutManager = GridLayoutManager(requireContext(), 2)
+        }
+        loadWishlist()
+    }
 
-        recyclerView.adapter = WishProductAdapter(productList)
+    private fun loadWishlist() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val allProducts = ProductRepository.getProductsOnce(requireContext())
+            val wishList = allProducts.filter { it.isWished }
+            (binding.recyclerWish.adapter as ProductAdapter).submitList(wishList)
+        }
+    }
 
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+    private fun handleRemoveWish(clickedItem: ProductData) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val allProducts = ProductRepository.getProductsOnce(requireContext()).toMutableList()
 
+            val index = allProducts.indexOfFirst { it.id == clickedItem.id }
+            if (index != -1) {
+                allProducts[index] = clickedItem.copy(isWished = false)
+
+                ProductRepository.saveProducts(requireContext(), allProducts)
+
+                val updatedWishList = allProducts.filter { it.isWished }
+                (binding.recyclerWish.adapter as ProductAdapter).submitList(updatedWishList)
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

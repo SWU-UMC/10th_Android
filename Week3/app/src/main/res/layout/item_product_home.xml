@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="상품 이름"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:paddingTop="8dp"/>
 
     <TextView
@@ -25,6 +25,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="상품 번호"
-        android:textSize="14dp"/>
+        android:textSize="14sp"/>
 
 </LinearLayout>

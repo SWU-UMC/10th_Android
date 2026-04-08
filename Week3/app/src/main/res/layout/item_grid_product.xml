@@ -12,34 +12,52 @@
         android:scaleType="centerCrop"
         android:src="@drawable/img_home"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="6dp">
+
     <TextView
         android:id="@+id/txtName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="상품 이름"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:ellipsize="end"
         android:paddingTop="6dp"/>
+
+        <ImageView
+            android:id="@+id/btnWish"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_wish_heart"
+            android:contentDescription="찜하기 버튼"
+            android:layout_marginStart="4dp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/txtDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="상품 설명"
-        android:textSize="14dp"/>
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/txtColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="색상 갯수"
-        android:textSize="13dp"/>
+        android:textSize="13sp"/>
 
     <TextView
         android:id="@+id/txtPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="₩10,000"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textStyle="bold"/>
 </LinearLayout>
