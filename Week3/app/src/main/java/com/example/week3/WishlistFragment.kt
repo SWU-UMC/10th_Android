@@ -1,29 +1,34 @@
-package com.example.week3 // 패키지명을 com.example.week3로 통일
+package com.example.week3
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
+
 class WishlistFragment : Fragment(R.layout.fragment_wishlist), ProductClickListener {
+
+    private lateinit var dataStoreManager: DataStoreManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val wishList = listOf(
-            Product("Air Jordan 1 Mid", "US$125", R.drawable.jordan1),
-            Product("Nike Everyday Plus", "US$10", R.drawable.socks)
-        )
+        dataStoreManager = DataStoreManager(requireContext())
 
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_wishlist_products)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
 
-        recyclerView.adapter = ProductAdapter(wishList, this)
+        viewLifecycleOwner.lifecycleScope.launch {
+            dataStoreManager.getWishlist().collect { savedWishlist ->
+                recyclerView.adapter = ProductAdapter(savedWishlist, this@WishlistFragment)
+            }
+        }
     }
-
 
     override fun onProductClick(productName: String, price: String) {
         val purchaseFragment = PurchaseFragment()

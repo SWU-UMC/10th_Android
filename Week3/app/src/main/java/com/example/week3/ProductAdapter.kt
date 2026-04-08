@@ -29,7 +29,7 @@ class ProductAdapter(
         holder.price.text = item.price
         holder.img.setImageResource(item.imageRes)
 
-        // 클릭 이벤트 전달
+
         holder.itemView.setOnClickListener {
             listener.onProductClick(item.name, item.price)
         }
