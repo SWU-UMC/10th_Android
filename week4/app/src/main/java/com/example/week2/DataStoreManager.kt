@@ -9,6 +9,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -48,20 +49,11 @@ class DataStoreManager(private val context: Context) {
     }
 
     suspend fun updateWishlistStatus(productId: Int, isWishlisted: Boolean) {
-        context.dataStore.edit { preferences ->
-            val jsonString = preferences[PRODUCTS_KEY] ?: ""
-            val products = if (jsonString.isEmpty()) {
-                getInitialProducts().toMutableList()
-            } else {
-                val type = object : TypeToken<List<Product>>() {}.type
-                gson.fromJson<List<Product>>(jsonString, type).toMutableList()
-            }
-
-            val index = products.indexOfFirst { it.id == productId }
-            if (index != -1) {
-                products[index] = products[index].copy(isWishlisted = isWishlisted)
-                preferences[PRODUCTS_KEY] = gson.toJson(products)
-            }
+        val products = productsFlow.first().toMutableList()
+        val index = products.indexOfFirst { it.id == productId }
+        if (index != -1) {
+            products[index] = products[index].copy(isWishlisted = isWishlisted)
+            saveProducts(products)
         }
     }
 }

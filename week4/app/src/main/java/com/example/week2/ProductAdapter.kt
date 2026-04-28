@@ -6,10 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.week2.databinding.ItemProductBinding
 
 class ProductAdapter(
-    private val products: List<Product>,
+    private var products: List<Product>,
     private val onItemClick: (Product) -> Unit,
     private val onWishlistClick: (Product, Int) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+
+    fun updateList(newProducts: List<Product>) {
+        this.products = newProducts
+        notifyDataSetChanged()
+    }
 
     inner class ProductViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
