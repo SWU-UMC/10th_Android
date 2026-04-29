@@ -25,28 +25,32 @@ class BuyAllFragment : Fragment(R.layout.fragment_buy_all) {
             adapter = productAdapter
             layoutManager = GridLayoutManager(requireContext(), 2)
         }
-        loadProducts()
+
+        observeProducts()
     }
 
-    private fun loadProducts() {
+    private fun observeProducts() {
         viewLifecycleOwner.lifecycleScope.launch {
-            val allProducts = ProductRepository.getProductsOnce(requireContext())
-
-            (binding.recyclerGrid.adapter as ProductAdapter).submitList(allProducts)
+            ProductRepository.getProductsFlow(requireContext()).collect { updatedList ->
+                (binding.recyclerGrid.adapter as ProductAdapter).submitList(updatedList)
+            }
         }
     }
 
     private fun handleWishClick(clickedItem: ProductData) {
-        val adapter = binding.recyclerGrid.adapter as ProductAdapter
-        val currentList = adapter.currentList.toMutableList()
-        val index = currentList.indexOfFirst { it.id == clickedItem.id }
-        if (index != -1) {
-            currentList[index] = clickedItem.copy(isWished = !clickedItem.isWished)
-            adapter.submitList(currentList)
+        viewLifecycleOwner.lifecycleScope.launch {
+            val currentList = ProductRepository.getProductsOnce(requireContext()).toMutableList()
+            val index = currentList.indexOfFirst { it.id == clickedItem.id }
+            if (index != -1) {
+                currentList[index] = clickedItem.copy(isWished = !clickedItem.isWished)
 
-            viewLifecycleOwner.lifecycleScope.launch {
                 ProductRepository.saveProducts(requireContext(), currentList)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -17,10 +17,10 @@ object ProductRepository {
     private val gson = Gson()
 
     private val initialList = listOf(
-        ProductData(1, R.drawable.image4, "상품1", "설명1", 1, "₩20,000"),
-        ProductData(2, R.drawable.image2, "상품2", "설명2", 2, "₩40,000"),
-        ProductData(3, R.drawable.image3, "상품3", "설명3", 4, "₩80,000"),
-        ProductData(4, R.drawable.image1, "상품4", "설명4", 5, "₩100,000")
+        ProductData(1, "image4", "상품1", "설명1", 1, "₩20,000"),
+        ProductData(2, "image2", "상품2", "설명2", 2, "₩40,000"),
+        ProductData(3, "image3", "상품3", "설명3", 4, "₩80,000"),
+        ProductData(4, "image1", "상품4", "설명4", 5, "₩100,000")
     )
 
     fun getProductsFlow(context: Context): Flow<List<ProductData>> {

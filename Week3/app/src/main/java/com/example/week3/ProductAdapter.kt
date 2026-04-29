@@ -21,14 +21,23 @@ class ProductAdapter(private val onWishClick: (ProductData) -> Unit
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         with(holder.binding) {
-            imgProduct.setImageResource(item.imageRes)
+            val context = root.context
+            val resourceId = context.resources.getIdentifier(
+                item.imageRes, "drawable", context.packageName
+            )
+
+            if (resourceId != 0) {
+                imgProduct.setImageResource(resourceId)
+            } else {
+                imgProduct.setImageResource(R.drawable.img_nemo)
+            }
             txtName.text = item.name
             txtDesc.text = item.desc
             txtColor.text = "색상 ${item.colorCount}개"
             txtPrice.text = item.price
 
             btnWish.setImageResource(
-                if (item.isWished) R.drawable.ic_wish_heart else R.drawable.ic_wish_heart
+                if (item.isWished) R.drawable.ic_wish_heart_fill else R.drawable.ic_wish_heart
             )
 
             btnWish.setOnClickListener {
