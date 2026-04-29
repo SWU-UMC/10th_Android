@@ -21,7 +21,6 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-
     private val MY_API_KEY = "reqres_3fd0bc2b94a34359a2e2b56a6f1f7d85"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -32,9 +31,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         loadMyData(1)
-
         loadFollowingData()
     }
 
@@ -44,10 +41,14 @@ class ProfileFragment : Fragment() {
                 if (response.isSuccessful) {
                     val user = response.body()?.data
                     user?.let {
-                        binding.tvMyName.text = "${it.firstName} ${it.lastName}"
+                        // 1. 이름 설정 (아까 바꾼 ID: tv_profile_name -> tvProfileName)
+                        binding.tvProfileName.text = "${it.firstName} ${it.lastName}"
+
+                        // 2. Glide 이미지 설정 (동그랗게 깎기 추가!)
                         Glide.with(this@ProfileFragment)
                             .load(it.avatar)
-                            .into(binding.ivMyProfile)
+                            .circleCrop() // ★ 여기가 추가된 부분입니다!
+                            .into(binding.ivProfileUser) // XML에서 바꾼 ID로 연결
                     }
                 }
             }
