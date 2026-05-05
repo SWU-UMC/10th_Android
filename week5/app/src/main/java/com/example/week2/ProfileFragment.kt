@@ -6,27 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.week2.databinding.FragmentProfileBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var followingAdapter: FollowingAdapter
-
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://reqres.in/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    private val service = retrofit.create(ReqResService::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,8 +43,9 @@ class ProfileFragment : Fragment() {
     }
 
     private fun fetchUserProfile(userId: Int) {
-        service.getUser(userId).enqueue(object : Callback<UserResponse> {
-            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val response = ApiClient.service.getUser(userId)
                 if (response.isSuccessful) {
                     response.body()?.data?.let { user ->
                         val fullName = "${user.firstName} ${user.lastName}"
@@ -66,29 +57,26 @@ class ProfileFragment : Fragment() {
                             .into(binding.ivProfileImg)
                     }
                 }
+            } catch (e: Exception) {
+                Log.e("ProfileFragment", "Error fetching profile", e)
             }
-
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                Log.e("ProfileFragment", "Error fetching profile", t)
-            }
-        })
+        }
     }
 
     private fun fetchFollowingList() {
-        service.getUsers(page = 1).enqueue(object : Callback<UserListResponse> {
-            override fun onResponse(call: Call<UserListResponse>, response: Response<UserListResponse>) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val response = ApiClient.service.getUsers(page = 1)
                 if (response.isSuccessful) {
                     response.body()?.data?.let { users ->
-                        followingAdapter.setUsers(users)
+                        followingAdapter.submitList(users)
                         binding.tvFollowingTitle.text = "팔로잉 (${users.size})"
                     }
                 }
+            } catch (e: Exception) {
+                Log.e("ProfileFragment", "Error fetching users", e)
             }
-
-            override fun onFailure(call: Call<UserListResponse>, t: Throwable) {
-                Log.e("ProfileFragment", "Error fetching users", t)
-            }
-        })
+        }
     }
 
     override fun onDestroyView() {

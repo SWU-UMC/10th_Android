@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.week2.databinding.FragmentWishlistBinding
@@ -15,6 +17,7 @@ class WishlistFragment : Fragment() {
     private var _binding: FragmentWishlistBinding? = null
     private val binding get() = _binding!!
     private lateinit var dataStoreManager: DataStoreManager
+    private var productAdapter: ProductAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,23 +34,29 @@ class WishlistFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            dataStoreManager.productsFlow.collect { products ->
-                val wishlistProducts = products.filter { it.isWishlisted }
-                val adapter = ProductAdapter(
-                    wishlistProducts,
-                    onItemClick = { product ->
-                        navigateToDetail(product)
-                    },
-                    onWishlistClick = { product, _ ->
-                        viewLifecycleOwner.lifecycleScope.launch {
-                            dataStoreManager.updateWishlistStatus(product.id, !product.isWishlisted)
-                        }
-                    }
-                )
+        productAdapter = ProductAdapter(
+            emptyList(),
+            onItemClick = { product ->
+                navigateToDetail(product)
+            },
+            onWishlistClick = { product, _ ->
+                viewLifecycleOwner.lifecycleScope.launch {
+                    dataStoreManager.updateWishlistStatus(product.id, !product.isWishlisted)
+                }
+            }
+        )
 
-                binding.rvWishlistProducts.layoutManager = GridLayoutManager(context, 2)
-                binding.rvWishlistProducts.adapter = adapter
+        binding.rvWishlistProducts.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = productAdapter
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                dataStoreManager.productsFlow.collect { products ->
+                    val wishlistProducts = products.filter { it.isWishlisted }
+                    productAdapter?.updateList(wishlistProducts)
+                }
             }
         }
     }
@@ -62,5 +71,6 @@ class WishlistFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        productAdapter = null
     }
 }
