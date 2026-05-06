@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">week2</string>
+
+    <!--바텀 네비게이션-->
+    <string name="nav_home">홈</string>
+    <string name="nav_purchase">구매하기</string>
+    <string name="nav_wishlist">위시리스트</string>
+    <string name="nav_cart">장바구니</string>
+    <string name="nav_profile">프로필</string>
+
+    <!--홈 Fragment -->
+    <string name="home_discover">Discover</string>
+    <string name="home_date">03월 31일 화요일</string>
+
+    <!--장바구니 Fragment -->
+    <string name="cart_empty_msg">장바구니가 비어 있습니다.\n제품을 추가하면 여기에 표시됩니다.</string>
+    <string name="cart_order">주문하기</string>
+
+    <!--프로필 Fragment -->
+    <string name="profile_title">Profile Fragment</string>
+
+    <!--구매하기 Fragment -->
+    <string name="purchase_all">전체</string>
+    <string name="purchase_tops_tshirts">Top &amp; T-shirts</string>
+    <string name="purchase_shoes">Shoes</string>
+    <string name="purchase_sale">Sale</string>
+
+    <!--위시리스트 Fragment -->
+    <string name="wishlist_title">위시리스트</string>
+
+    <!-- 제품 상세 정보 -->
+    <string name="product_description">The Nike Everyday Plus Cushioned Socks bring comfort to your workout with extra cushioning under the heel and forefoot and a snug, supportive arch band. Sweat-wicking power and breathability up top help keep your feet dry and cool to help push you through that extra set.</string>
+    <string name="wishlist_btn_text">위시리스트</string>
+    <string name="product_detail_info">• Shown: Multi-Color\n• Style: SX6897-965</string>
+    <string name="view_product_details">View Product Details</string>
+    <string name="btn_select_size">사이즈 선택</string>
+    <string name="btn_add_to_cart">장바구니에 추가</string>
+</resources>
