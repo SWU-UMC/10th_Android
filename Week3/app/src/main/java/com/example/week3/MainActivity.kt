@@ -1,15 +1,16 @@
 package com.example.week3
 
-import CartFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.example.week2final.ProfileFragment
+import com.example.week3.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var dataStoreManager: DataStoreManager
@@ -19,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         dataStoreManager = DataStoreManager(this)
-
 
         lifecycleScope.launch {
             val existingData = dataStoreManager.getAllProducts().first()
@@ -36,11 +36,9 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.itemIconTintList = null
 
-
         if (savedInstanceState == null) {
             loadFragment(HomeFragment())
         }
-
 
         bottomNav.setOnItemSelectedListener { item ->
             val fragment: Fragment = when (item.itemId) {
