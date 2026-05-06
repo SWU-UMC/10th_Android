@@ -13,7 +13,9 @@ import com.example.nike.ui.product.ProductNavigator
 import com.example.nike.ui.profile.ProfileFragment
 import com.example.nike.ui.shop.ShopFragment
 import com.example.nike.ui.wishlist.WishlistFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), CartNavigator, ProductNavigator {
 
     private lateinit var binding: ActivityMainBinding

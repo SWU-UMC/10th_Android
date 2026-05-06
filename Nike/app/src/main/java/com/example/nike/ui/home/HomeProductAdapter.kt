@@ -2,6 +2,8 @@ package com.example.nike.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nike.R
 import com.example.nike.data.repository.ProductUiModel
@@ -10,9 +12,7 @@ import com.example.nike.databinding.ItemProductBinding
 class HomeProductAdapter(
     private val onHeartClick: (ProductUiModel) -> Unit,
     private val onItemClick: (ProductUiModel) -> Unit
-) : RecyclerView.Adapter<HomeProductAdapter.ProductViewHolder>() {
-
-    private val items = mutableListOf<ProductUiModel>()
+) : ListAdapter<ProductUiModel, HomeProductAdapter.ProductViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding = ItemProductBinding.inflate(
@@ -24,15 +24,7 @@ class HomeProductAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bind(items[position])
-    }
-
-    override fun getItemCount(): Int = items.size
-
-    fun submitList(newItems: List<ProductUiModel>) {
-        items.clear()
-        items.addAll(newItems)
-        notifyDataSetChanged()
+        holder.bind(getItem(position))
     }
 
     inner class ProductViewHolder(
@@ -48,6 +40,18 @@ class HomeProductAdapter(
             )
             binding.ivHeart.setOnClickListener { onHeartClick(item) }
             binding.root.setOnClickListener { onItemClick(item) }
+        }
+    }
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ProductUiModel>() {
+            override fun areItemsTheSame(oldItem: ProductUiModel, newItem: ProductUiModel): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: ProductUiModel, newItem: ProductUiModel): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 }

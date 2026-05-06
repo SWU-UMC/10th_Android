@@ -7,12 +7,16 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.example.nike.data.model.Product
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
 private val Context.dataStore by preferencesDataStore(name = "shopping_prefs")
 
-class ProductDataStore(private val context: Context) {
+class ProductDataStore @Inject constructor(
+    @param:ApplicationContext private val context: Context
+) {
 
     companion object {
         private val PRODUCTS_KEY = stringPreferencesKey("products_json")

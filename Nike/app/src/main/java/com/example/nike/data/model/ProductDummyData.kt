@@ -16,9 +16,9 @@ object ProductDummyData {
             ),
             Product(
                 id = 2,
-                name = "Nike Hoodie",
-                price = 99000,
-                imageResId = R.drawable.nike_air_force,
+                name = "Air Jordan XXXVI",
+                price = 185,
+                imageResId = R.drawable.air_jordan_xxxvi,
                 category = "TOP",
                 isNew = true
             ),
@@ -26,7 +26,7 @@ object ProductDummyData {
                 id = 3,
                 name = "Nike T-shirt",
                 price = 59000,
-                imageResId = R.drawable.nike_air_force,
+                imageResId = R.drawable.home_banner,
                 category = "TOP",
                 isNew = false
             ),
@@ -36,21 +36,23 @@ object ProductDummyData {
                 price = 79000,
                 imageResId = R.drawable.nike_air_force,
                 category = "SALE",
+                isBestSeller = true,
                 isNew = false
             ),
             Product(
                 id = 5,
                 name = "Nike Sale Cap",
                 price = 35000,
-                imageResId = R.drawable.nike_air_force,
+                imageResId = R.drawable.air_jordan_xxxvi,
                 category = "SALE",
+                isBestSeller = true,
                 isNew = false
             ),
             Product(
                 id = 6,
                 name = "Nike Windrunner",
                 price = 149000,
-                imageResId = R.drawable.nike_air_force,
+                imageResId = R.drawable.home_banner,
                 category = "TOP",
                 isNew = true
             )

@@ -1,14 +1,16 @@
-package com.example.nike.ui.profile
+package com.example.nike.data.repository
 
-import com.example.nike.data.remote.api.ReqResApiClient
 import com.example.nike.data.remote.api.ReqResService
 import com.example.nike.data.remote.dto.ReqResUserDto
+import com.example.nike.domain.repository.ProfileRepository
+import com.example.nike.ui.profile.ProfileUserUiModel
+import javax.inject.Inject
 
-class ProfileRepository(
-    private val service: ReqResService = ReqResApiClient.service
-) {
+class ProfileRepositoryImpl @Inject constructor(
+    private val service: ReqResService
+) : ProfileRepository {
 
-    suspend fun getProfile(userId: Int): Result<ProfileUserUiModel> {
+    override suspend fun getProfile(userId: Int): Result<ProfileUserUiModel> {
         return runCatching {
             val response = service.getUser(userId)
             val body = response.body()
@@ -19,7 +21,7 @@ class ProfileRepository(
         }
     }
 
-    suspend fun getFollowingUsers(page: Int = 1): Result<List<ProfileUserUiModel>> {
+    override suspend fun getFollowingUsers(page: Int): Result<List<ProfileUserUiModel>> {
         return runCatching {
             val response = service.getUsers(page)
             val body = response.body()
@@ -39,10 +41,3 @@ class ProfileRepository(
         )
     }
 }
-
-data class ProfileUserUiModel(
-    val id: Int,
-    val name: String,
-    val email: String,
-    val avatarUrl: String
-)

@@ -1,18 +1,26 @@
 package com.example.nike.ui.product
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.nike.data.local.ProductDataStore
-import com.example.nike.data.repository.ProductRepository
+import com.example.nike.data.repository.ProductUiModel
+import com.example.nike.domain.repository.ProductRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class ProductViewModel @Inject constructor(
+    private val repository: ProductRepository
+) : ViewModel() {
 
-    private val repository = ProductRepository(ProductDataStore(application.applicationContext))
-
-    val allProducts = repository.allProducts.asLiveData()
+    val allProducts: StateFlow<List<ProductUiModel>> = repository.allProducts.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5_000),
+        initialValue = emptyList()
+    )
 
     init {
         viewModelScope.launch {

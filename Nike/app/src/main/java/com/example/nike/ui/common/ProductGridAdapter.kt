@@ -3,6 +3,8 @@ package com.example.nike.ui.common
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nike.R
 import com.example.nike.data.repository.ProductUiModel
@@ -11,9 +13,7 @@ import com.example.nike.databinding.ItemProductGridBinding
 class ProductGridAdapter(
     private val onItemClick: (ProductUiModel) -> Unit,
     private val onHeartClick: (ProductUiModel) -> Unit
-) : RecyclerView.Adapter<ProductGridAdapter.ProductViewHolder>() {
-
-    private val items = mutableListOf<ProductUiModel>()
+) : ListAdapter<ProductUiModel, ProductGridAdapter.ProductViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding = ItemProductGridBinding.inflate(
@@ -25,15 +25,7 @@ class ProductGridAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bind(items[position])
-    }
-
-    override fun getItemCount(): Int = items.size
-
-    fun submitList(newItems: List<ProductUiModel>) {
-        items.clear()
-        items.addAll(newItems)
-        notifyDataSetChanged()
+        holder.bind(getItem(position))
     }
 
     inner class ProductViewHolder(
@@ -52,6 +44,18 @@ class ProductGridAdapter(
             )
             binding.root.setOnClickListener { onItemClick(product) }
             binding.imgLike.setOnClickListener { onHeartClick(product) }
+        }
+    }
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ProductUiModel>() {
+            override fun areItemsTheSame(oldItem: ProductUiModel, newItem: ProductUiModel): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: ProductUiModel, newItem: ProductUiModel): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 }

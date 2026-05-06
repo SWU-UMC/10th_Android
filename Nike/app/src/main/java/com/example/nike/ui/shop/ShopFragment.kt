@@ -5,8 +5,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.nike.R
 import com.example.nike.databinding.FragmentShopBinding
+import dagger.hilt.android.AndroidEntryPoint
 import com.google.android.material.tabs.TabLayoutMediator
 
+@AndroidEntryPoint
 class ShopFragment : Fragment(R.layout.fragment_shop) {
 
     private var _binding: FragmentShopBinding? = null

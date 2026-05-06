@@ -3,9 +3,11 @@ package com.example.nike.data.repository
 import com.example.nike.data.local.ProductDataStore
 import com.example.nike.data.model.Product
 import com.example.nike.data.model.ProductDummyData
+import com.example.nike.domain.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
+import javax.inject.Inject
 
 data class ProductUiModel(
     val id: Int,
@@ -20,11 +22,11 @@ data class ProductUiModel(
     val isNew: Boolean
 )
 
-class ProductRepository(
+class ProductRepositoryImpl @Inject constructor(
     private val dataStore: ProductDataStore
-) {
+) : ProductRepository {
 
-    val allProducts: Flow<List<ProductUiModel>> =
+    override val allProducts: Flow<List<ProductUiModel>> =
         combine(
             dataStore.getProducts(),
             dataStore.getWishlistIds()
@@ -34,7 +36,7 @@ class ProductRepository(
             }
         }
 
-    suspend fun initProductsIfEmpty() {
+    override suspend fun initProductsIfEmpty() {
         val currentProducts = dataStore.getProducts().first()
         if (currentProducts.isEmpty()) {
             dataStore.saveProducts(ProductDummyData.getProducts())
@@ -43,7 +45,7 @@ class ProductRepository(
         }
     }
 
-    suspend fun toggleWishlist(productId: Int) {
+    override suspend fun toggleWishlist(productId: Int) {
         val currentWishlist = dataStore.getWishlistIds().first().toMutableList()
 
         if (currentWishlist.contains(productId)) {
@@ -55,7 +57,7 @@ class ProductRepository(
         dataStore.saveWishlistIds(currentWishlist)
     }
 
-    suspend fun addToCart(productId: Int) {
+    override suspend fun addToCart(productId: Int) {
         val currentCart = dataStore.getCartIds().first().toMutableList()
         if (!currentCart.contains(productId)) {
             currentCart.add(productId)
@@ -63,13 +65,13 @@ class ProductRepository(
         dataStore.saveCartIds(currentCart)
     }
 
-    suspend fun removeFromCart(productId: Int) {
+    override suspend fun removeFromCart(productId: Int) {
         val currentCart = dataStore.getCartIds().first().toMutableList()
         currentCart.remove(productId)
         dataStore.saveCartIds(currentCart)
     }
 
-    suspend fun getProductById(productId: Int): ProductUiModel? {
+    override suspend fun getProductById(productId: Int): ProductUiModel? {
         val products = dataStore.getProducts().first()
         val wishlistIds = dataStore.getWishlistIds().first()
         return products.find { it.id == productId }?.toUiModel(wishlistIds.contains(productId))

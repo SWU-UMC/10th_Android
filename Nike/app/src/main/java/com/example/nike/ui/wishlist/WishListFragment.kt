@@ -4,13 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nike.R
 import com.example.nike.databinding.FragmentWishListBinding
 import com.example.nike.ui.common.ProductGridAdapter
 import com.example.nike.ui.product.ProductNavigator
 import com.example.nike.ui.product.ProductViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class WishlistFragment : Fragment(R.layout.fragment_wish_list) {
 
     private var _binding: FragmentWishListBinding? = null
@@ -31,8 +37,12 @@ class WishlistFragment : Fragment(R.layout.fragment_wish_list) {
         binding.rvWishlist.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rvWishlist.adapter = adapter
 
-        viewModel.allProducts.observe(viewLifecycleOwner) { products ->
-            adapter.submitList(products.filter { it.isLiked })
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.allProducts.collect { products ->
+                    adapter.submitList(products.filter { it.isLiked })
+                }
+            }
         }
     }
 

@@ -4,13 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nike.R
 import com.example.nike.databinding.FragmentTopBinding
 import com.example.nike.ui.common.ProductGridAdapter
 import com.example.nike.ui.product.ProductNavigator
 import com.example.nike.ui.product.ProductViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class TopFragment : Fragment(R.layout.fragment_top) {
 
     private var _binding: FragmentTopBinding? = null
@@ -31,8 +37,12 @@ class TopFragment : Fragment(R.layout.fragment_top) {
         binding.rvTop.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rvTop.adapter = adapter
 
-        viewModel.allProducts.observe(viewLifecycleOwner) { products ->
-            adapter.submitList(products.filter { it.category == CATEGORY_TOP })
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.allProducts.collect { products ->
+                    adapter.submitList(products.filter { it.category == CATEGORY_TOP })
+                }
+            }
         }
     }
 
