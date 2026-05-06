@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Week3</string>
+    <string name="btnHome">홈</string>
+    <string name="btnBuy">구매하기</string>
+    <string name="btnWishlist">위시리스트</string>
+    <string name="btnShoppingcart">장바구니</string>
+    <string name="btnProfile">프로필</string>
+    <string name="Title">Discover</string>
+    <string name="date">9월 4일 목요일</string>
+    <string name="newEn">What is new</string>
+    <string name="newKr">나이키 최신 상품</string>
+    <string name="all">전체</string>
+    <string name="Shirts">Tops &amp; T-Shirts</string>
+    <string name="Shoes">Shoes</string>
+    <string name="WishList">위시리스트</string>
+    <string name="cart_empty">장바구니가 비어있습니다.</string>
+    <string name="cart_guide">제품을 추가하면 여기에 표시됩니다.</string>
+    <string name="buy_button">주문하기</string>
+
+    <string name="txtNo">상품 번호</string>
+    <string name="txtName">상품 이름</string>
+    <string name="txtDesc">상품 설명</string>
+    <string name="txtColor">색상 갯수</string>
+    <string name="txtPrice">₩10,000</string>
+
+    <string name="nickname">닉네임</string>"
+    <string name="edit_profile">프로필 수정</string>
+    <string name="order">주문</string>
+    <string name="pass">패스</string>
+    <string name="event">이벤트</string>
+    <string name="setting">설정</string>
+    <string name="membership">나이키 멤버 혜택</string>
+    <string name="hoeMany">0개 사용 가능</string>
+    <string name="arrow">></string>
+    <string name="following">팔로잉 (5)</string>
+    <string name="edit">편집</string>
+    <string name="registerDate">회원 가입일: 2024.01.01</string>
+    <string name="description">설명</string>
+
+</resources>
