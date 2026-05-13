@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/fragment_wish_list.xml",
+        "source": "com.example.nike.app-main-58:/layout/fragment_wish_list.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/layout.xml",
+        "source": "com.example.nike.app-main-58:/layout/layout.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/fragment_sale.xml",
+        "source": "com.example.nike.app-main-58:/layout/fragment_sale.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/fragment_cart.xml",
+        "source": "com.example.nike.app-main-58:/layout/fragment_cart.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/fragment_product_detail.xml",
+        "source": "com.example.nike.app-main-58:/layout/fragment_product_detail.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/item_home_product.xml",
+        "source": "com.example.nike.app-main-58:/layout/item_home_product.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/activity_main.xml",
+        "source": "com.example.nike.app-main-58:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/fragment_top.xml",
+        "source": "com.example.nike.app-main-58:/layout/fragment_top.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/fragment_home.xml",
+        "source": "com.example.nike.app-main-58:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/item_product_grid.xml",
+        "source": "com.example.nike.app-main-58:/layout/item_product_grid.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/fragment_shop.xml",
+        "source": "com.example.nike.app-main-58:/layout/fragment_shop.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/item_product.xml",
+        "source": "com.example.nike.app-main-58:/layout/item_product.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/item_following_user.xml",
+        "source": "com.example.nike.app-main-58:/layout/item_following_user.xml"
+    },
+    {
+        "merged": "com.example.nike.app-mergeDebugResources-55:/layout/fragment_profile.xml",
+        "source": "com.example.nike.app-main-58:/layout/fragment_profile.xml"
+    }
+]
