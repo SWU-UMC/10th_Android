@@ -18,7 +18,7 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    // Hilt를 이용한 ViewModel 주입
+
     private val viewModel: ShoppingViewModel by viewModels()
 
     override fun onCreateView(
