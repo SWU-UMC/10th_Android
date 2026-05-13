@@ -51,6 +51,7 @@ id menu_home
 id menu_profile
 id menu_shop
 id menu_wishlist
+id profileScrollView
 id progressBar
 id rvFollowingUsers
 id rvLatestProducts
@@ -65,6 +66,7 @@ id tvDate
 id tvDescription
 id tvDiscover
 id tvFollowingTitle
+id tvJoinedAt
 id tvLatestTitle
 id tvName
 id tvNickname

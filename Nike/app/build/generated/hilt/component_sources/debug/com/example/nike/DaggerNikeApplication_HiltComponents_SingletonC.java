@@ -16,7 +16,6 @@ import com.example.nike.di.NetworkModule_ProvideRetrofitFactory;
 import com.example.nike.domain.repository.ProductRepository;
 import com.example.nike.domain.repository.ProfileRepository;
 import com.example.nike.ui.home.HomeFragment;
-import com.example.nike.ui.main.MainActivity;
 import com.example.nike.ui.product.ProductDetailFragment;
 import com.example.nike.ui.product.ProductViewModel;
 import com.example.nike.ui.product.ProductViewModel_HiltModules;

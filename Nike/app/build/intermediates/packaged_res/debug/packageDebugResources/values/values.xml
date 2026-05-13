@@ -9,8 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Nike</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <style name="Theme.Nike" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.Nike" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">#000000</item>
         <item name="colorSecondary">#000000</item>
+        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>

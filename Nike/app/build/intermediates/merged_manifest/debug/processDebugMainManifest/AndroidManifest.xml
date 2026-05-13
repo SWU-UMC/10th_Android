@@ -30,7 +30,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.Nike" >
         <activity
-            android:name="com.example.nike.ui.main.MainActivity"
+            android:name="com.example.nike.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

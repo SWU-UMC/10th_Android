@@ -4,9 +4,6 @@ ADDED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:2:1-2
 INJECTED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:2:1-27:12
 INJECTED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:2:1-27:12
 INJECTED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:2:1-27:12
-MERGED from [androidx.databinding:databinding-adapters:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\b8189b5ff9f28a8109b3af1119cf0694\workspace\transformed\databinding-adapters-9.1.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.databinding:databinding-ktx:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\c6df92abd32ddead7cec7802bd6ecd5b\workspace\transformed\databinding-ktx-9.1.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.databinding:databinding-runtime:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\d90e3327718d529084b737d4f610f98e\workspace\transformed\databinding-runtime-9.1.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:viewbinding:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\f5db70995f3dcd2118138376b4b3bc57\workspace\transformed\viewbinding-9.1.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\e13c6789e4b9b7e3698cb9e774ca479a\workspace\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\02faec5e0c410531d9445a5a8590e09b\workspace\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -57,6 +54,7 @@ MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] C:\Users\SuaKang\.gradle
 MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\626f1eceebd6561f82888c72e5fb30f3\workspace\transformed\emoji2-1.4.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.core:core:1.18.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\5588bf41245a5197048c64d723c3f13e\workspace\transformed\core-1.18.0\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\e77bbfab0ca9471fffcbde6405bc87fc\workspace\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\61c5f2d1f4c640e195483db862dbf201\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\bebc65f07b27820a7db38e4b805577bd\workspace\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:2:1-5:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\e99a3f68deb0044cf1fafdc9f9db5fb7\workspace\transformed\lifecycle-viewmodel\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.2] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\f7a8a0353130624c53064d80990a7cce\workspace\transformed\runtime-annotation\AndroidManifest.xml:2:1-7:12
@@ -66,14 +64,12 @@ MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] C:\Users\SuaK
 MERGED from [androidx.compose.runtime:runtime-android:1.9.2] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\e5007b9f78817270b73c3f123e5339a7\workspace\transformed\runtime\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.2] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\b40e300d1cd6ff7bb93760a138b8add7\workspace\transformed\runtime-saveable\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\5e91fd4f50d93f78552779e93a888e27\workspace\transformed\lifecycle-runtime-compose\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2f32ee6e85a56dff21dda8c257611c22\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\dea1debf80270a36af3cf3fe80faf0c5\workspace\transformed\lifecycle-runtime\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\9900e03563d663dd9035412ebc4d944d\workspace\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\5a0e4813e0681a17112db426fc13a02a\workspace\transformed\lifecycle-viewmodel-ktx-2.10.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-service:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\80b505a10f173127e411286882065ea4\workspace\transformed\lifecycle-service-2.10.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\61c5f2d1f4c640e195483db862dbf201\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\ccd1efee71d6cca821910c03baf80184\workspace\transformed\lifecycle-livedata-ktx-2.10.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\4aedf137507f74ba86a6498db9199198\workspace\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2f32ee6e85a56dff21dda8c257611c22\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2e9fea7278a271f98a4bce3417c2b8c8\workspace\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\256d01a4cce54284a3ed3366db5e0387\workspace\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.18.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\1980393bbab704bbb49103887e8aea1e\workspace\transformed\core-ktx-1.18.0\AndroidManifest.xml:2:1-7:12
@@ -151,12 +147,12 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Su
 		ADDED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:14:9-42
 	android:name
 		ADDED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:11:9-40
-activity#com.example.nike.ui.main.MainActivity
+activity#com.example.nike.MainActivity
 ADDED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:16:9-23:20
 	android:exported
 		ADDED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:18:13-36
 	android:name
-		ADDED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:17:13-49
+		ADDED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:17:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:19:13-22:29
 action#android.intent.action.MAIN
@@ -171,12 +167,6 @@ uses-sdk
 INJECTED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml
 INJECTED from D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml
-MERGED from [androidx.databinding:databinding-adapters:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\b8189b5ff9f28a8109b3af1119cf0694\workspace\transformed\databinding-adapters-9.1.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.databinding:databinding-adapters:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\b8189b5ff9f28a8109b3af1119cf0694\workspace\transformed\databinding-adapters-9.1.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.databinding:databinding-ktx:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\c6df92abd32ddead7cec7802bd6ecd5b\workspace\transformed\databinding-ktx-9.1.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.databinding:databinding-ktx:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\c6df92abd32ddead7cec7802bd6ecd5b\workspace\transformed\databinding-ktx-9.1.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.databinding:databinding-runtime:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\d90e3327718d529084b737d4f610f98e\workspace\transformed\databinding-runtime-9.1.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.databinding:databinding-runtime:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\d90e3327718d529084b737d4f610f98e\workspace\transformed\databinding-runtime-9.1.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:viewbinding:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\f5db70995f3dcd2118138376b4b3bc57\workspace\transformed\viewbinding-9.1.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:viewbinding:9.1.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\f5db70995f3dcd2118138376b4b3bc57\workspace\transformed\viewbinding-9.1.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\e13c6789e4b9b7e3698cb9e774ca479a\workspace\transformed\material-1.12.0\AndroidManifest.xml:20:5-44
@@ -277,6 +267,8 @@ MERGED from [androidx.core:core:1.18.0] C:\Users\SuaKang\.gradle\caches\9.3.1\tr
 MERGED from [androidx.core:core:1.18.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\5588bf41245a5197048c64d723c3f13e\workspace\transformed\core-1.18.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\e77bbfab0ca9471fffcbde6405bc87fc\workspace\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\e77bbfab0ca9471fffcbde6405bc87fc\workspace\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\61c5f2d1f4c640e195483db862dbf201\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\61c5f2d1f4c640e195483db862dbf201\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\bebc65f07b27820a7db38e4b805577bd\workspace\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:4:5-43
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\bebc65f07b27820a7db38e4b805577bd\workspace\transformed\lifecycle-viewmodel-2.10.0\AndroidManifest.xml:4:5-43
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\e99a3f68deb0044cf1fafdc9f9db5fb7\workspace\transformed\lifecycle-viewmodel\AndroidManifest.xml:20:5-44
@@ -295,22 +287,18 @@ MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.2] C:\Users\S
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.2] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\b40e300d1cd6ff7bb93760a138b8add7\workspace\transformed\runtime-saveable\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\5e91fd4f50d93f78552779e93a888e27\workspace\transformed\lifecycle-runtime-compose\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\5e91fd4f50d93f78552779e93a888e27\workspace\transformed\lifecycle-runtime-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2f32ee6e85a56dff21dda8c257611c22\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2f32ee6e85a56dff21dda8c257611c22\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\dea1debf80270a36af3cf3fe80faf0c5\workspace\transformed\lifecycle-runtime\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\dea1debf80270a36af3cf3fe80faf0c5\workspace\transformed\lifecycle-runtime\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\9900e03563d663dd9035412ebc4d944d\workspace\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\9900e03563d663dd9035412ebc4d944d\workspace\transformed\lifecycle-livedata-core-2.10.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\5a0e4813e0681a17112db426fc13a02a\workspace\transformed\lifecycle-viewmodel-ktx-2.10.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\5a0e4813e0681a17112db426fc13a02a\workspace\transformed\lifecycle-viewmodel-ktx-2.10.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-service:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\80b505a10f173127e411286882065ea4\workspace\transformed\lifecycle-service-2.10.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-service:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\80b505a10f173127e411286882065ea4\workspace\transformed\lifecycle-service-2.10.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\61c5f2d1f4c640e195483db862dbf201\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\61c5f2d1f4c640e195483db862dbf201\workspace\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\ccd1efee71d6cca821910c03baf80184\workspace\transformed\lifecycle-livedata-ktx-2.10.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\ccd1efee71d6cca821910c03baf80184\workspace\transformed\lifecycle-livedata-ktx-2.10.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\4aedf137507f74ba86a6498db9199198\workspace\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\4aedf137507f74ba86a6498db9199198\workspace\transformed\lifecycle-livedata-core-ktx-2.10.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2f32ee6e85a56dff21dda8c257611c22\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2f32ee6e85a56dff21dda8c257611c22\workspace\transformed\lifecycle-livedata-2.10.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2e9fea7278a271f98a4bce3417c2b8c8\workspace\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\2e9fea7278a271f98a4bce3417c2b8c8\workspace\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] C:\Users\SuaKang\.gradle\caches\9.3.1\transforms\256d01a4cce54284a3ed3366db5e0387\workspace\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:20:5-44

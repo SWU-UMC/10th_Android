@@ -4,12 +4,13 @@ package com.example.nike.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
@@ -21,13 +22,16 @@ import java.lang.String;
 
 public final class FragmentProfileBinding implements ViewBinding {
   @NonNull
-  private final NestedScrollView rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnEditProfile;
+  public final AppCompatButton btnEditProfile;
 
   @NonNull
   public final ImageView ivProfileAvatar;
+
+  @NonNull
+  public final NestedScrollView profileScrollView;
 
   @NonNull
   public final ProgressBar progressBar;
@@ -39,28 +43,35 @@ public final class FragmentProfileBinding implements ViewBinding {
   public final TextView tvFollowingTitle;
 
   @NonNull
+  public final TextView tvJoinedAt;
+
+  @NonNull
   public final TextView tvNickname;
 
   @NonNull
   public final TextView tvProfileError;
 
-  private FragmentProfileBinding(@NonNull NestedScrollView rootView, @NonNull Button btnEditProfile,
-      @NonNull ImageView ivProfileAvatar, @NonNull ProgressBar progressBar,
+  private FragmentProfileBinding(@NonNull ConstraintLayout rootView,
+      @NonNull AppCompatButton btnEditProfile, @NonNull ImageView ivProfileAvatar,
+      @NonNull NestedScrollView profileScrollView, @NonNull ProgressBar progressBar,
       @NonNull RecyclerView rvFollowingUsers, @NonNull TextView tvFollowingTitle,
-      @NonNull TextView tvNickname, @NonNull TextView tvProfileError) {
+      @NonNull TextView tvJoinedAt, @NonNull TextView tvNickname,
+      @NonNull TextView tvProfileError) {
     this.rootView = rootView;
     this.btnEditProfile = btnEditProfile;
     this.ivProfileAvatar = ivProfileAvatar;
+    this.profileScrollView = profileScrollView;
     this.progressBar = progressBar;
     this.rvFollowingUsers = rvFollowingUsers;
     this.tvFollowingTitle = tvFollowingTitle;
+    this.tvJoinedAt = tvJoinedAt;
     this.tvNickname = tvNickname;
     this.tvProfileError = tvProfileError;
   }
 
   @Override
   @NonNull
-  public NestedScrollView getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -86,7 +97,7 @@ public final class FragmentProfileBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btnEditProfile;
-      Button btnEditProfile = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btnEditProfile = ViewBindings.findChildViewById(rootView, id);
       if (btnEditProfile == null) {
         break missingId;
       }
@@ -94,6 +105,12 @@ public final class FragmentProfileBinding implements ViewBinding {
       id = R.id.ivProfileAvatar;
       ImageView ivProfileAvatar = ViewBindings.findChildViewById(rootView, id);
       if (ivProfileAvatar == null) {
+        break missingId;
+      }
+
+      id = R.id.profileScrollView;
+      NestedScrollView profileScrollView = ViewBindings.findChildViewById(rootView, id);
+      if (profileScrollView == null) {
         break missingId;
       }
 
@@ -115,6 +132,12 @@ public final class FragmentProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvJoinedAt;
+      TextView tvJoinedAt = ViewBindings.findChildViewById(rootView, id);
+      if (tvJoinedAt == null) {
+        break missingId;
+      }
+
       id = R.id.tvNickname;
       TextView tvNickname = ViewBindings.findChildViewById(rootView, id);
       if (tvNickname == null) {
@@ -127,9 +150,9 @@ public final class FragmentProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentProfileBinding((NestedScrollView) rootView, btnEditProfile,
-          ivProfileAvatar, progressBar, rvFollowingUsers, tvFollowingTitle, tvNickname,
-          tvProfileError);
+      return new FragmentProfileBinding((ConstraintLayout) rootView, btnEditProfile,
+          ivProfileAvatar, profileScrollView, progressBar, rvFollowingUsers, tvFollowingTitle,
+          tvJoinedAt, tvNickname, tvProfileError);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

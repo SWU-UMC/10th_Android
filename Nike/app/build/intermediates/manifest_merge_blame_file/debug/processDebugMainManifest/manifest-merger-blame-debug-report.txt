@@ -52,8 +52,8 @@
 31-->D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:14:9-42
 32        <activity
 32-->D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:16:9-23:20
-33            android:name="com.example.nike.ui.main.MainActivity"
-33-->D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:17:13-49
+33            android:name="com.example.nike.MainActivity"
+33-->D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:17:13-41
 34            android:exported="true" >
 34-->D:\SuaKang\UMC_10th\wooga\Nike\app\src\main\AndroidManifest.xml:18:13-36
 35            <intent-filter>

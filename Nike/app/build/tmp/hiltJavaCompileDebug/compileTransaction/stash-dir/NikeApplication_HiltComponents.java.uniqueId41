@@ -3,7 +3,6 @@ package com.example.nike;
 import com.example.nike.di.NetworkModule;
 import com.example.nike.di.RepositoryModule;
 import com.example.nike.ui.home.HomeFragment_GeneratedInjector;
-import com.example.nike.ui.main.MainActivity_GeneratedInjector;
 import com.example.nike.ui.product.ProductDetailFragment_GeneratedInjector;
 import com.example.nike.ui.product.ProductViewModel_HiltModules;
 import com.example.nike.ui.profile.ProfileFragment_GeneratedInjector;
