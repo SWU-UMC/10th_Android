@@ -19,7 +19,7 @@ import com.example.week7.R
 import com.example.week7.navigation.Route
 
 @Composable
-fun ShoppingCartScreen(navController: NavController) {
+fun ShoppingCartScreen(onNavigateToBuy: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -50,9 +50,7 @@ fun ShoppingCartScreen(navController: NavController) {
 
         Button(
             onClick = {
-                navController.navigate(Route.BuyGraph) {
-                    popUpTo<Route.ShoppingCart> { inclusive = true }
-                }
+                onNavigateToBuy()
             },
             modifier = Modifier
                 .fillMaxWidth()

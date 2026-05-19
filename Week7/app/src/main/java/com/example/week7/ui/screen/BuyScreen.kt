@@ -13,9 +13,10 @@ import com.example.week7.R
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 
 @Composable
-fun BuyScreen() {
-    var selectedTabIndex by remember { mutableIntStateOf(0) }
-    val tabs = listOf(
+fun BuyScreen(
+    selectedTabIndex: Int,
+    onTabSelected: (Int) -> Unit
+) { val tabs = listOf(
         stringResource(R.string.all),
         stringResource(R.string.Shirts),
         stringResource(R.string.Shoes)
@@ -38,7 +39,7 @@ fun BuyScreen() {
             tabs.forEachIndexed { index, title ->
                 Tab(
                     selected = selectedTabIndex == index,
-                    onClick = { selectedTabIndex = index },
+                    onClick = { onTabSelected(index) },
                     text = {
                         Text(
                             text = title,
