@@ -5,11 +5,11 @@ import com.example.week7.R
 sealed class BottomNavItem(
     val title: String,
     val icon: Int,
-    val screenRoute: String
+    val route: Any
 ) {
-    object Home : BottomNavItem("홈", R.drawable.ic_housesimple, "home")
-    object Shop : BottomNavItem("구매하기", R.drawable.ic_listmagnifyingglass, "shop")
-    object Wishlist : BottomNavItem("위시리스트", R.drawable.ic_heartstraight, "wishlist")
-    object Cart : BottomNavItem("장바구니", R.drawable.ic_bagsimple, "cart")
-    object Profile : BottomNavItem("프로필", R.drawable.ic_user, "profile")
+    data object Home : BottomNavItem("홈", R.drawable.ic_housesimple, Screen.Home)
+    data object Shop : BottomNavItem("구매하기", R.drawable.ic_listmagnifyingglass, Screen.Shop)
+    data object Wishlist : BottomNavItem("위시리스트", R.drawable.ic_heartstraight, Screen.Wishlist)
+    data object Cart : BottomNavItem("장바구니", R.drawable.ic_bagsimple, Screen.Cart)
+    data object Profile : BottomNavItem("프로필", R.drawable.ic_user, Screen.Profile)
 }

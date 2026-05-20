@@ -20,24 +20,30 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.week7.ui.*
+import com.example.week7.ui.cart.CartScreen
+import com.example.week7.ui.home.HomeScreen
+import com.example.week7.ui.profile.ProfileScreen
+import com.example.week7.ui.shop.ShopScreen
 import com.example.week7.ui.theme.Week7Theme
+import com.example.week7.ui.wishlist.WishlistScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            // dynamicColor = false로 설정하여 시스템 테마 색상이 아닌 흰색 배경을 유지
             Week7Theme(dynamicColor = false) {
                 MainScreen()
             }
@@ -49,7 +55,7 @@ class MainActivity : ComponentActivity() {
 fun MainScreen() {
     val navController = rememberNavController()
     Scaffold(
-        containerColor = Color.White, // Scaffold 배경을 흰색으로 고정
+        containerColor = Color.White,
         bottomBar = { BottomNavigation(navController = navController) }
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
@@ -70,16 +76,15 @@ fun BottomNavigation(navController: NavHostController) {
     NavigationBar(
         containerColor = Color.White,
         contentColor = Color.Black,
-        tonalElevation = 0.dp, // M3 기본 톤 오버레이 제거
+        tonalElevation = 0.dp,
         modifier = Modifier.drawBehind {
             drawIntoCanvas { canvas ->
                 val paint = Paint().asFrameworkPaint()
-                // CSS: 0px -4px 20px 0px #00000008
                 paint.setShadowLayer(
-                    20f,      // blur
-                    0f,       // dx
-                    -4f,      // dy
-                    android.graphics.Color.argb(8, 0, 0, 0) // #00000008
+                    20f,
+                    0f,
+                    -4f,
+                    android.graphics.Color.argb(8, 0, 0, 0)
                 )
                 canvas.nativeCanvas.drawRect(
                     0f,
@@ -92,18 +97,19 @@ fun BottomNavigation(navController: NavHostController) {
         }
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
+        val currentDestination = navBackStackEntry?.destination
+
         items.forEach { item ->
+            val selected = currentDestination?.hierarchy?.any { it.hasRoute(item.route::class) } == true
+            
             NavigationBarItem(
                 icon = { Icon(painterResource(id = item.icon), contentDescription = item.title) },
                 label = { Text(text = item.title, fontSize = 10.sp) },
-                selected = currentRoute == item.screenRoute,
+                selected = selected,
                 onClick = {
-                    navController.navigate(item.screenRoute) {
-                        navController.graph.startDestinationRoute?.let { screen_route ->
-                            popUpTo(screen_route) {
-                                saveState = true
-                            }
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
+                            saveState = true
                         }
                         launchSingleTop = true
                         restoreState = true
@@ -123,30 +129,28 @@ fun BottomNavigation(navController: NavHostController) {
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {
-    NavHost(navController, startDestination = BottomNavItem.Home.screenRoute) {
-        composable(BottomNavItem.Home.screenRoute) {
+    NavHost(navController, startDestination = Screen.Home) {
+        composable<Screen.Home> {
             HomeScreen()
         }
-        composable(BottomNavItem.Shop.screenRoute) {
+        composable<Screen.Shop> {
             ShopScreen()
         }
-        composable(BottomNavItem.Wishlist.screenRoute) {
+        composable<Screen.Wishlist> {
             WishlistScreen()
         }
-        composable(BottomNavItem.Cart.screenRoute) {
+        composable<Screen.Cart> {
             CartScreen(onOrderClick = {
-                navController.navigate(BottomNavItem.Shop.screenRoute) {
-                    navController.graph.startDestinationRoute?.let { screen_route ->
-                        popUpTo(screen_route) {
-                            saveState = true
-                        }
+                navController.navigate(Screen.Shop) {
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
                     }
                     launchSingleTop = true
                     restoreState = true
                 }
             })
         }
-        composable(BottomNavItem.Profile.screenRoute) {
+        composable<Screen.Profile> {
             ProfileScreen()
         }
     }
