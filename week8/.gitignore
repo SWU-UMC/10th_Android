@@ -1,0 +1,11 @@
+﻿.gradle/
+build/
+*/build/
+local.properties
+.idea/
+*.iml
+/build
+/app/build
+*.iml
+gradle/gradle-daemon-jvm.properties
+
