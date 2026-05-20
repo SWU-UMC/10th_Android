@@ -46,7 +46,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 viewModel.uiState.collect { state ->
                     when (state) {
                         ProfileUiState.Loading -> {
-                            binding.progressBar.isVisible = false
+                            binding.progressBar.isVisible = true
                             binding.tvProfileError.isVisible = false
                         }
 
