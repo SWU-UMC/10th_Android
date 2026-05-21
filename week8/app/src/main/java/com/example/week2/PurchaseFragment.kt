@@ -38,7 +38,7 @@ class PurchaseFragment : Fragment() {
         binding.cvPurchaseProducts.setContent {
             val products = remember { mutableStateListOf<Product>().apply { addAll(dummyProducts) } }
 
-            ProductList(
+            ProductGrid(
                 products = products,
                 onItemClick = { product ->
                     navigateToDetail(product)

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -95,21 +96,29 @@ class HomeFragment : Fragment() {
                 Spacer(modifier = Modifier.height(10.dp))
             }
 
-            items(
-                items = dummyProducts,
-                key = { it.id }
-            ) { product ->
-                ProductItem(
-                    product = product,
-                    onItemClick = { navigateToDetail(it) },
-                    onWishlistClick = { clickedProduct ->
-                        val index = dummyProducts.indexOfFirst { it.id == clickedProduct.id }
-                        if (index != -1) {
-                            dummyProducts[index] = dummyProducts[index].copy(isWishlisted = !dummyProducts[index].isWishlisted)
-                        }
-                    },
-                    modifier = Modifier.padding(horizontal = 12.dp)
-                )
+            item {
+                LazyRow(
+                    contentPadding = PaddingValues(horizontal = 12.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    items(
+                        items = dummyProducts,
+                        key = { it.id }
+                    ) { product ->
+                        ProductItem(
+                            product = product,
+                            onItemClick = { navigateToDetail(it) },
+                            onWishlistClick = { clickedProduct ->
+                                val index = dummyProducts.indexOfFirst { it.id == clickedProduct.id }
+                                if (index != -1) {
+                                    dummyProducts[index] = dummyProducts[index].copy(isWishlisted = !dummyProducts[index].isWishlisted)
+                                }
+                            },
+                            // fillParentMaxWidth()를 사용하여 기존 세로 리스트일 때와 동일한 크기를 유지
+                            modifier = Modifier.fillParentMaxWidth()
+                        )
+                    }
+                }
             }
         }
     }

@@ -37,7 +37,7 @@ class WishlistFragment : Fragment() {
         binding.cvWishlistProducts.setContent {
             val wishlistItems = remember { mutableStateListOf<Product>().apply { addAll(dummyWishlist) } }
 
-            ProductList(
+            ProductGrid(
                 products = wishlistItems,
                 onItemClick = { product ->
                     Toast.makeText(context, "${product.name} clicked", Toast.LENGTH_SHORT).show()
