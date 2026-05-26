@@ -16,6 +16,9 @@ import com.example.week7.R
 import com.example.week7.navigation.Route
 import com.example.week7.navigation.NavigationItem
 import com.example.week7.ui.screen.*
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.week7.viewmodel.MainViewModel
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun MainScreen() {
@@ -23,15 +26,15 @@ fun MainScreen() {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
-    var selectedTabIndex by remember { mutableIntStateOf(0) }
-
     val navItems = listOf(
-        NavigationItem("Home", Route.Home, R.drawable.ic_home),
-        NavigationItem("Buy", Route.BuyGraph, R.drawable.ic_buy),
-        NavigationItem("Wish", Route.Wishlist, R.drawable.ic_wishlist),
-        NavigationItem("Cart", Route.ShoppingCart, R.drawable.ic_shoppingcart),
-        NavigationItem("Profile", Route.Profile, R.drawable.ic_profile)
+        NavigationItem(stringResource(R.string.btnHome), Route.Home, R.drawable.ic_home),
+        NavigationItem(stringResource(R.string.btnBuy), Route.BuyGraph, R.drawable.ic_buy),
+        NavigationItem(stringResource(R.string.btnWishlist), Route.Wishlist, R.drawable.ic_wishlist),
+        NavigationItem(stringResource(R.string.btnShoppingcart), Route.ShoppingCart, R.drawable.ic_shoppingcart),
+        NavigationItem(stringResource(R.string.btnProfile), Route.Profile, R.drawable.ic_profile)
     )
+
+    val mainViewModel: MainViewModel = viewModel()
 
     Scaffold(
         containerColor = Color.White,
@@ -74,18 +77,21 @@ fun MainScreen() {
                 .padding(innerPadding)
                 .background(Color.White)
         ) {
-            composable<Route.Home> { HomeScreen() }
+            composable<Route.Home> {
+                HomeScreen(viewModel = mainViewModel)
+            }
 
             navigation<Route.BuyGraph>(startDestination = Route.BuyGraph.All) {
                 composable<Route.BuyGraph.All> {
-                    BuyScreen(
-                        selectedTabIndex = selectedTabIndex,
-                        onTabSelected = { selectedTabIndex = it }
-                    )
+                    BuyScreen(viewModel = mainViewModel)
                 }
             }
 
-            composable<Route.Wishlist> { WishlistScreen() }
+            composable<Route.Wishlist> {
+                WishlistScreen(
+                    viewModel = mainViewModel
+                )
+            }
 
             composable<Route.ShoppingCart> {
                 ShoppingCartScreen(
