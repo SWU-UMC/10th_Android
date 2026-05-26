@@ -17,13 +17,14 @@ import com.example.week7.R
 import com.example.week7.ui.components.ProductData
 import com.example.week7.ui.components.ProductGridItem
 import com.example.week7.viewmodel.MainViewModel
+import androidx.compose.runtime.saveable.rememberSaveable
 
 @Composable
 fun BuyScreen(
-    selectedTabIndex: Int,
-    onTabSelected: (Int) -> Unit,
     viewModel: MainViewModel
 ) {
+    var selectedTabIndex by rememberSaveable { mutableIntStateOf(0) }
+
     val tabs = listOf(
         stringResource(R.string.all),
         stringResource(R.string.Shirts),
@@ -47,7 +48,7 @@ fun BuyScreen(
             tabs.forEachIndexed { index, title ->
                 Tab(
                     selected = selectedTabIndex == index,
-                    onClick = { onTabSelected(index) },
+                    onClick = { selectedTabIndex = index },
                     text = {
                         Text(
                             text = title,
@@ -101,13 +102,13 @@ fun BuyAllScreen(
 @Composable
 fun BuyTopsScreen() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = "탭2")
+        Text(text = stringResource(id = R.string.tap2))
     }
 }
 
 @Composable
 fun BuyShoesScreen() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = "탭3")
+        Text(text = stringResource(id = R.string.tap3))
     }
 }
