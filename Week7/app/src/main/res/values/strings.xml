@@ -32,11 +32,13 @@
     <string name="event">이벤트</string>
     <string name="setting">설정</string>
     <string name="membership">나이키 멤버 혜택</string>
-    <string name="hoeMany">0개 사용 가능</string>
+    <string name="howMany">0개 사용 가능</string>
     <string name="arrow">></string>
     <string name="following">팔로잉 (5)</string>
     <string name="edit">편집</string>
     <string name="registerDate">회원 가입일: 2024.01.01</string>
     <string name="description">설명</string>
-
+    <string name="myError">프로필 로드 실패</string>
+    <string name="youError">팔로잉 목록 로드 실패</string>
+    <string name="outsider">팔로잉하는 친구가 없습니다.</string>
 </resources>
