@@ -2,8 +2,9 @@ package com.example.week3
 
 import android.graphics.Typeface
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.StyleSpan
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.week3.databinding.FragmentBuyBinding
@@ -56,11 +57,28 @@ class BuyFragment : Fragment(R.layout.fragment_buy) {
     }
 
     private fun updateTabStyle(tab: TabLayout.Tab?, isBold: Boolean) {
-        val tabView = (binding.tabLayout.getChildAt(0) as ViewGroup).getChildAt(tab?.position ?: 0) as ViewGroup
-        val textView = tabView.getChildAt(1) as? TextView
+        tab?.let { currentTab ->
+            val rawText = currentTab.text?.toString() ?: ""
 
-        textView?.let {
-            it.typeface = if (isBold) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+            val spannableString = SpannableString(rawText)
+
+            if (isBold) {
+                spannableString.setSpan(
+                    StyleSpan(Typeface.BOLD),
+                    0,
+                    rawText.length,
+                    SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            } else {
+                spannableString.setSpan(
+                    StyleSpan(Typeface.NORMAL),
+                    0,
+                    rawText.length,
+                    SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+
+            currentTab.text = spannableString
         }
     }
 
