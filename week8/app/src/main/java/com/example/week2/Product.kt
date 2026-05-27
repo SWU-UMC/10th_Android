@@ -10,6 +10,6 @@ data class Product(
     val description: String,
     val price: String,
     val imageResId: Int,
-    var isWishlisted: Boolean = false,
+    val isWishlisted: Boolean = false,
     val category: String = ""
 ) : Parcelable
