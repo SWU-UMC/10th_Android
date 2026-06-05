@@ -28,6 +28,9 @@ class SaleFragment : Fragment(R.layout.fragment_sale) {
                 val intent = Intent(requireContext(), ProductDetailActivity::class.java)
                 intent.putExtra("product_id", product.id)
                 startActivity(intent)
+            },
+            onHeartClick = { product ->
+                viewModel.toggleWishlist(product.id)
             }
         )
 

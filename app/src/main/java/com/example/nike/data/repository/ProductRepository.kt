@@ -15,7 +15,7 @@ data class ProductUiModel(
     val imageResId: Int,
     val colorCount: Int = 0,
     val isBestSeller: Boolean = false,
-    var isLiked: Boolean,
+    val isLiked: Boolean,
     val category: String,
     val isNew: Boolean
 )

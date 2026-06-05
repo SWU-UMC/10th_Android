@@ -11,7 +11,8 @@ import com.example.nike.data.repository.ProductUiModel
 
 class ProductGridAdapter(
     private val productList: MutableList<ProductUiModel>,
-    private val onItemClick: (ProductUiModel) -> Unit
+    private val onItemClick: (ProductUiModel) -> Unit,
+    private val onHeartClick: (ProductUiModel) -> Unit
 ) : RecyclerView.Adapter<ProductGridAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -51,12 +52,7 @@ class ProductGridAdapter(
         }
 
         holder.imgLike.setOnClickListener {
-            product.isLiked = !product.isLiked
-
-            holder.imgLike.setImageResource(
-                if (product.isLiked) R.drawable.ic_heart_filled
-                else R.drawable.ic_heartstraight
-            )
+            onHeartClick(product)
         }
     }
 

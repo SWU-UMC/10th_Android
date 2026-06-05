@@ -11,6 +11,10 @@
         android:theme="@style/Theme.Nike">
 
         <activity
+            android:name=".ui.theme.ProductDetailActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -8,7 +8,7 @@ data class Product(
     val imageResId: Int,
     val colorCount: Int = 0,
     val isBestSeller: Boolean = false,
-    var isLiked: Boolean = false,
+    val isLiked: Boolean = false,
     val category: String = "TOP",
     val isNew: Boolean = false
 )
