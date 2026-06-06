@@ -29,6 +29,7 @@ import coil.request.ImageRequest
 import com.example.week7.R
 import com.example.week7.network.ApiClient
 import com.example.week7.network.UserData
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -40,21 +41,25 @@ fun ProfileScreen() {
     var followingList by remember { mutableStateOf<List<UserData>>(emptyList()) }
 
     LaunchedEffect(Unit) {
-        try {
-            val profileResponse = service.getProfile()
-            userProfile = profileResponse.data
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(context, R.string.myError, Toast.LENGTH_SHORT).show()
+        launch {
+            try {
+                val profileResponse = service.getProfile()
+                userProfile = profileResponse.data
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(context, R.string.myError, Toast.LENGTH_SHORT).show()
+            }
         }
 
-        try {
-            val followingResponse = service.getFollowingList(page = 1)
-            val allUsers = followingResponse.data
-            followingList = allUsers.filter { it.id != 1 }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(context, R.string.youError, Toast.LENGTH_SHORT).show()
+        launch {
+            try {
+                val followingResponse = service.getFollowingList(page = 1)
+                val allUsers = followingResponse.data
+                followingList = allUsers.filter { it.id != 1 }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(context, R.string.youError, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
