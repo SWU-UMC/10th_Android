@@ -1,9 +1,12 @@
 package com.example.week7.ui.screen
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.*
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.*
@@ -17,28 +20,30 @@ import com.example.week7.R
 import com.example.week7.ui.components.ProductData
 import com.example.week7.ui.components.ProductGridItem
 import com.example.week7.viewmodel.MainViewModel
-import androidx.compose.runtime.saveable.rememberSaveable
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BuyScreen(
     viewModel: MainViewModel
 ) {
-    var selectedTabIndex by rememberSaveable { mutableIntStateOf(0) }
-
     val tabs = listOf(
         stringResource(R.string.all),
         stringResource(R.string.Shirts),
         stringResource(R.string.Shoes)
     )
 
+    val pagerState = rememberPagerState(pageCount = { tabs.size })
+    val coroutineScope = rememberCoroutineScope()
+
     Column(modifier = Modifier.fillMaxSize()) {
         TabRow(
-            selectedTabIndex = selectedTabIndex,
+            selectedTabIndex = pagerState.targetPage,
             containerColor = Color.White,
             contentColor = Color.Black,
             indicator = { tabPositions ->
                 TabRowDefaults.SecondaryIndicator(
-                    modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
+                    modifier = Modifier.tabIndicatorOffset(tabPositions[pagerState.targetPage]),
                     height = 3.dp,
                     color = Color.Black
                 )
@@ -46,22 +51,30 @@ fun BuyScreen(
             divider = {}
         ) {
             tabs.forEachIndexed { index, title ->
+                val isSelected = pagerState.targetPage == index
                 Tab(
-                    selected = selectedTabIndex == index,
-                    onClick = { selectedTabIndex = index },
+                    selected = isSelected,
+                    onClick = {
+                        coroutineScope.launch {
+                            pagerState.animateScrollToPage(index)
+                        }
+                    },
                     text = {
                         Text(
                             text = title,
-                            fontWeight = if (selectedTabIndex == index) FontWeight.Bold else FontWeight.Normal,
-                            color = if (selectedTabIndex == index) Color.Black else Color.Gray
+                            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                            color = if (isSelected) Color.Black else Color.Gray
                         )
                     }
                 )
             }
         }
 
-        Box(modifier = Modifier.fillMaxSize()) {
-            when (selectedTabIndex) {
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.fillMaxSize()
+        ) { page ->
+            when (page) {
                 0 -> BuyAllScreen(
                     products = viewModel.productList,
                     onWishToggle = { id -> viewModel.toggleWishStatus(id) }
